@@ -1,0 +1,216 @@
+{
+  "attributes": [
+    {
+      "id": "vision",
+      "trait": "Inspire",
+      "name": "Communicate a Compelling Vision",
+      "descriptors": [
+        "I understand how my work connects to my team’s goals and HTX’s vision, and I communicate this link clearly when engaging with others.",
+        "I communicate HTX’s vision in ways that enable my team to see the purpose in their work and stay focused on shared goals.",
+        "I translate HTX’s vision and strategy into concrete action plans, ensuring teams understand how their work contributes to broader organisational outcomes.",
+        "I articulate a clear, future- oriented vision that creates shared purpose, unites teams and inspires commitment towards HTX’s long-term goals."
+      ],
+      "page": 6
+    },
+    {
+      "id": "celebrate",
+      "trait": "Inspire",
+      "name": "Celebrate Efforts & Successes",
+      "descriptors": [
+        "I acknowledge my peers’ contributions, encouraging and motivating them to strive for excellence.",
+        "I proactively encourage and affirm my team members by recognising their contributions and achievements. I make them feel valued and motivate them to perform at their best.",
+        "I put in place processes and/or practices to systematically recognise contributions and achievements across teams and stakeholders, reinforcing behaviours that inspire excellence.",
+        "I engender a culture where efforts and achievements are regularly celebrated, motivating our people to continue working towards excellence."
+      ],
+      "page": 6
+    },
+    {
+      "id": "influence",
+      "trait": "Inspire",
+      "name": "Expand Influence",
+      "descriptors": [
+        "I build strong relationships by understanding diverse perspectives and finding common ground to achieve shared outcomes.",
+        "I extend influence beyond my immediate team by engaging and building trust with stakeholders at all levels, gaining support for shared goals.",
+        "I lead cross-divisional collaboration by building trusted relationships and strategic partnerships to drive impactful organisational outcomes.",
+        "I shape thinking and direction across networks of leaders and stakeholders, influencing decisions and advancing strategic priorities."
+      ],
+      "page": 6
+    },
+    {
+      "id": "experiment",
+      "trait": "Dare to Try",
+      "name": "Experiment & Innovate",
+      "descriptors": [
+        "I identify opportunities to improve work by questioning existing practices, contributing ideas and testing practical approaches that create value. I gather feedback and refine my work to improve outcomes.",
+        "I create space for my team to experiment safely, challenge conventional ways of working, test ideas and translate learning into practical improvements that enhance productivity and outcomes. I support responsible experimentation with digital tools and AI- enabled approaches to improve how we work.",
+        "I build the conditions for continuous improvement across teams by encouraging experimentation, sharing learning, and connecting promising practices across workstreams. I lead teams to turn tested ideas into practical improvements that can be adopted by others.",
+        "I champion a culture where curiosity, experimentation and continuous improvement are valued. I create the environment for teams to challenge assumptions, learn from failure and improve how HTX works over time while ensuring experimentation with emerging technologies is pursued responsibly."
+      ],
+      "page": 7
+    },
+    {
+      "id": "resilience",
+      "trait": "Dare to Try",
+      "name": "Build Resilience",
+      "descriptors": [
+        "I reflect and learn from setbacks, adapt quickly and stay motivated under pressure.",
+        "I build confidence and adaptability within my team, supporting them to stay motivated and effective through uncertainty. I take ownership of team challenges and reframe setbacks as opportunities for learning and growth.",
+        "I strengthen resilience across teams by encouraging constructive responses to challenges and reinforcing learning from experience without fear of judgement or blame.",
+        "I build organisational resilience by ensuring people and processes are prepared to respond to disruptions. I ensure HTX remains adaptable and prepared to sustain progress in an evolving environment."
+      ],
+      "page": 7
+    },
+    {
+      "id": "courage",
+      "trait": "Dare to Try",
+      "name": "Act with Courage",
+      "descriptors": [
+        "I take initiative to voice concerns, express feedback and share ideas, even if the outcomes are uncertain.",
+        "I lead with confidence and make timely decisions amid uncertainty. I encourage my team to take calculated risks, voice their perspectives and stand by their decisions.",
+        "I inspire teams to embrace bold ideas and take calculated risks that drive meaningful outcomes. I create an environment where diverse perspectives are valued and difficult issues are addressed openly.",
+        "I lead decisively through ambiguity, making thoughtful and, where necessary, out-of-the-box decisions that shape HTX’s direction and inspire confidence in others. I demonstrate conviction in addressing difficult issues, taking accountability for decisions with long-term implications."
+      ],
+      "page": 8
+    },
+    {
+      "id": "care",
+      "trait": "Empathise",
+      "name": "Show Genuine Care",
+      "descriptors": [
+        "I demonstrate care by giving others my full attention, listening actively, and asking thoughtful questions. I stay mindful of my team’s collective mental, emotional and physical well-being.",
+        "I treat my team members with care and respect, offering support to help them grow. I stay attuned to concerns, especially unspoken ones, and actively address them.",
+        "I support my team members' well-being by putting in place practices that promote psychological safety. I model empathetic listening and encourage others to do the same.",
+        "I champion holistic well- being by addressing systemic factors that affect people's overall health and by instilling inclusive, people-first practices across HTX."
+      ],
+      "page": 9
+    },
+    {
+      "id": "collaborate",
+      "trait": "Empathise",
+      "name": "Collaborate Effectively",
+      "descriptors": [
+        "I contribute positively to team projects by understanding others' perspectives, sharing ideas openly, and adapting to collaborate effectively with diverse team members.",
+        "I foster collaboration through open discussions where different views are valued, building mutual understanding and better outcomes.",
+        "I strengthen cross-team partnerships by aligning diverse perspectives to shared goals, creating an environment in which collaboration and collective problem-solving drive success.",
+        "I build strategic partnerships across divisions by bridging perspectives and aligning priorities to tackle complex systemic issues."
+      ],
+      "page": 9
+    },
+    {
+      "id": "inclusion",
+      "trait": "Empathise",
+      "name": "Foster Inclusion & Build Emotional Intelligence",
+      "descriptors": [
+        "I foster inclusive interactions by building informal connections, responding to emotional cues and drawing team members into meaningful conversations.",
+        "I shape team culture and build psychological safety, addressing interpersonal dynamics openly and tactfully.",
+        "I ensure inclusive practices are considered in routines and decisions, so that diverse voices are heard and hidden biases are addressed meaningfully.",
+        "I set the tone for an inclusive organisation by leading respectful and open dialogue and creating an environment where people feel valued, heard and psychologically safe."
+      ],
+      "page": 9
+    },
+    {
+      "id": "excellence",
+      "trait": "Aim High",
+      "name": "Pursue Excellence",
+      "descriptors": [
+        "I take ownership of my work by managing priorities, analysing issues critically and using relevant data and insights where appropriate to deliver quality work that meets organisational standards. I hold myself accountable to my work outcomes, verify assumptions, address risks early and seek guidance when needed.",
+        "I set clear expectations and standards, guiding my team to define problems clearly, draw on credible information and data insights, and develop practical options to solve issues rigorously. I define roles clearly, proactively surface risks and remove obstacles to help my team deliver divisional and organisational goals.",
+        "I set clear goals and strengthen clarity, rigour and discipline in how work is delivered and prioritised. I guide teams to connect insights across workstreams and focus effort on outcomes that matter. I remove barriers, open doors to opportunities and ensure teams deliver quality outcomes consistently.",
+        "I set high standards for organisational performance, charting future direction by anticipating shifts and opportunities in the external landscape. I ensure my teams examine issues with clarity and rigour, and steer effort towards outcomes that create lasting value."
+      ],
+      "page": 10
+    },
+    {
+      "id": "transformation",
+      "trait": "Aim High",
+      "name": "Drive Transformation",
+      "descriptors": [
+        "I support change initiatives by understanding the purpose of the change, redesigning work processes, adapting to new ways of working, applying change processes and tools effectively, and providing constructive feedback to improve implementation.",
+        "I guide my team through change by explaining its purpose, addressing concerns and supporting them as they adapt to evolving work practices, including adopting new digital or AI-enabled ways of working. I plan and implement change initiatives by anticipating adoption challenges and resolving issues early.",
+        "I drive change by aligning initiatives with organisational priorities, mobilising stakeholders, managing trade-offs and addressing barriers to adoption. I ensure transformation efforts deliver sustained impact across teams.",
+        "I champion transformation by articulating a compelling case for change, aligning people, resources, processes and technology towards shared outcomes, and sustaining leadership commitment. I ensure organisation-wide change efforts contribute to HTX’s long-term effectiveness and public value."
+      ],
+      "page": 10
+    },
+    {
+      "id": "foresight",
+      "trait": "Aim High",
+      "name": "Act with Foresight",
+      "descriptors": [
+        "I use available evidence, data and context to assess options, anticipate risks and implications and make sound recommendations. I consider the potential impact of decisions beyond immediate outcomes and seek guidance when trade- offs are unclear or when decisions may have wider impact.",
+        "I make considered and rational decisions by weighing evidence, delivery needs, risks, stakeholder impact and longer-term consequences. I guide my team to anticipate potential challenges, apply sound judgement in day-to-day decisions and escalate issues early where needed.",
+        "I integrate organisational data, cross-functional perspectives and emerging developments to anticipate future risks and opportunities, making decisions that balance competing priorities, resource constraints and wider organisational impact. I ensure key trade-offs are surfaced and addressed transparently, while preparing teams to respond to changing conditions.",
+        "I make timely, ethical and context-sensitive decisions, anticipating future developments while considering the socio- political, economic and operating environment. I steward resources responsibly and strengthen organisational resilience, readiness and relevance to prepare for emerging challenges and opportunities."
+      ],
+      "page": 11
+    },
+    {
+      "id": "growth",
+      "trait": "Learn & Relearn",
+      "name": "Cultivate Growth & Learning",
+      "descriptors": [
+        "I set clear learning goals, seek feedback and take ownership of my growth by reskilling and upskilling. I share knowledge and lessons learnt, contributing to the collective growth of my team.",
+        "I coach my team to identify growth areas and create development plans, while ensuring they have protected time to learn and pursue their development goals. I prioritise learning as part of day-to-day work by creating opportunities for knowledge sharing and application.",
+        "I emphasise the importance of continuous learning by encouraging cross-domain learning and creating opportunities for stretch assignments and mentoring. I proactively build future- ready capabilities by identifying emerging skill needs and introducing development opportunities that strengthen team readiness.",
+        "I engender an organisational culture where learning, mentoring and knowledge-sharing are valued and encouraged. I put in place organisational practices to support continuous learning at scale, building future-ready capabilities and workforce readiness."
+      ],
+      "page": 12
+    },
+    {
+      "id": "agility",
+      "trait": "Learn & Relearn",
+      "name": "Embrace Learning Agility",
+      "descriptors": [
+        "I try new approaches and act on opportunities to learn, grow and adapt to changing expectations, tools and ways of working with resilience and curiosity.",
+        "I guide my team to expand their knowledge beyond immediate work areas, apply new skills and grow through feedback and reflection. I role model and encourage my team to adapt as technologies and work practices evolve.",
+        "I guide staff development by providing feedback to strengthen learning agility, helping teams quickly adopt new skills and adjust to evolving priorities, technologies and ways of working.",
+        "I model learning agility by acquiring skills outside my domain, including in emerging areas that shape the future of work, to inspire others and foster a culture where continuous learning is valued and encouraged."
+      ],
+      "page": 12
+    },
+    {
+      "id": "digital",
+      "trait": "Learn & Relearn",
+      "name": "Drive Digital Enablement & Technology",
+      "descriptors": [
+        "I adopt new digital tools, use data and AI- enabled platforms responsibly, support my peers in technology adoption, and suggest technology-based improvements to streamline work and boost productivity.",
+        "I lead my team in adopting digital tools, data-enabled practices and AI-enabled ways of working to achieve better outcomes, while removing barriers to ensure smooth and responsible adoption.",
+        "I champion digital adoption by shaping mindsets and guiding teams to harness data, automation and AI- enabled technologies strategically to improve productivity and support innovation.",
+        "I drive digital and AI- enabled transformation by aligning technology, data, partnerships and workforce capabilities with strategic goals, strengthening organisational capabilities to remain agile, trusted and competitive."
+      ],
+      "page": 13
+    }
+  ],
+  "dimensions": [
+    {
+      "name": "Lead Self",
+      "descriptors": [
+        "I recognise my motivators and triggers, managing my responses and emotions in high-stress situations. I seek feedback and learning opportunities to continually improve myself.",
+        "I demonstrate self- awareness and emotional stability, adapting my leadership approaches according to the situation. I reflect on feedback to continually improve how I lead and support others.",
+        "I consistently demonstrate composure and treat my teams with compassion and respect. I seek and act on feedback to continually improve my effectiveness as a leader.",
+        "I lead with authenticity and self-awareness, staying grounded in purpose and values when navigating complexity. I value diverse perspectives and continuously evolve my leadership approaches to meet changing organisational needs."
+      ],
+      "page": 4
+    },
+    {
+      "name": "Grow Teams",
+      "descriptors": [
+        "I contribute to team growth by building trust, openly sharing ideas and knowledge, supporting peers and adapting my work approaches to strengthen collaboration and team success.",
+        "I foster a cohesive team by aligning strengths, clarifying roles and expectations, and encouraging shared ownership of outcomes. I build my team’s confidence and capability to use available data and AI-enabled tools responsibly, while keeping ownership of decisions and outcomes clear.",
+        "I strengthen effectiveness and agility across teams by removing barriers and aligning goals. I prepare teams to thrive in a digital and AI-enabled workplace, ensuring technology is harnessed responsibly without losing sight of human judgement and accountability.",
+        "I prioritise investment in leadership, capabilities and resources to build high-performing teams that can adapt to evolving challenges. I create the conditions for teams to work confidently in a technology-enabled environment, while upholding human judgement, ownership and accountability."
+      ],
+      "page": 4
+    },
+    {
+      "name": "Think Ecosystem",
+      "descriptors": [
+        "I recognise how my work supports others and proactively identify connections across teams. I consider different perspectives when addressing challenges.",
+        "I guide my team to anticipate the ripple effects of decisions, break down silos and develop practical solutions that integrate the broader needs of stakeholders. I put in place practices to safeguard data, retain critical knowledge and share information responsibly so my team can work effectively with others.",
+        "I identify and manage cross-domain interdependencies, connecting efforts across teams and ensuring decisions consider wider organisational impact and risks. I establish systems to manage data and knowledge, ensuring continuity, governance and responsible use across work transitions.",
+        "I drive organisational performance by identifying strategic leverage points across domains and addressing root causes of systemic challenges. I drive the strategic planning of systems, processes, workforce and governance to uphold trust and enable the responsible use of data, digital technologies and AI capabilities in the long term."
+      ],
+      "page": 5
+    }
+  ]
+}
