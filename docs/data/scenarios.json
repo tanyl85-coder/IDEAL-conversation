@@ -1,0 +1,662 @@
+[
+  {
+    "level": 0,
+    "title": "The concern nobody has raised",
+    "story": "A junior engineer notices an unusual test result just before a milestone review. A respected specialist says it is probably noise. The engineer has checked the data but stays silent, worried about delaying the team.",
+    "links": [
+      [
+        "courage",
+        "Raise an evidence-based concern despite uncertainty."
+      ],
+      [
+        "excellence",
+        "Verify assumptions and surface risks early."
+      ],
+      [
+        "foresight",
+        "Consider downstream implications and seek guidance."
+      ]
+    ],
+    "questions": [
+      "What is known, and what remains uncertain?",
+      "What makes speaking up difficult here?",
+      "When have you raised a concern constructively before?"
+    ],
+    "strength": "Careful analysis and respect for expertise.",
+    "balance": "Respect may become deference; conviction still needs openness to alternative explanations.",
+    "barrier": "Check escalation routes and whether earlier concerns were dismissed.",
+    "experiment": "Before the next suitable review, summarise the observation, evidence and uncertainty; raise it through the agreed risk channel and ask what would resolve it.",
+    "signal": "The concern is explicitly considered and a responsible person records the next step—not necessarily agreement with your interpretation.",
+    "support": "Clarify escalation thresholds and rehearse a concise statement together.",
+    "review": "What response did you receive? What helped you speak clearly without overstating the evidence?",
+    "dimension": 0,
+    "id": "scenario-1"
+  },
+  {
+    "level": 0,
+    "title": "A trial that did not work",
+    "story": "An analyst tests a new method on a bounded task. It performs worse than the existing approach. She is disappointed and stops sharing ideas, although the trial exposed a useful limitation.",
+    "links": [
+      [
+        "resilience",
+        "Learn from the setback and recover motivation."
+      ],
+      [
+        "experiment",
+        "Use feedback to refine a practical test."
+      ],
+      [
+        "agility",
+        "Adapt an approach in response to evidence."
+      ]
+    ],
+    "questions": [
+      "What did the trial teach you?",
+      "What are you concluding about yourself that the evidence does not establish?",
+      "What small next test is justified?"
+    ],
+    "strength": "Curiosity and willingness to try.",
+    "balance": "Persistence helps until it becomes repeating the same approach without learning.",
+    "barrier": "Check whether time, test data or permission to report failure were missing.",
+    "experiment": "Write a short learning note and test one revised assumption in a safe, agreed setting.",
+    "signal": "A clearer decision about what to retain, change or stop, supported by the trial.",
+    "support": "Recognise the learning and provide a bounded opportunity to try again.",
+    "review": "What changed in your approach and confidence? What remains outside your control?",
+    "dimension": 0,
+    "id": "scenario-2"
+  },
+  {
+    "level": 0,
+    "title": "The helpful digital enthusiast",
+    "story": "An officer finds an approved tool that reduces repetitive work. Peers ask for help, but he starts completing their tasks for them. One colleague quietly avoids the tool after making an error.",
+    "links": [
+      [
+        "digital",
+        "Support responsible tool adoption and verify outputs."
+      ],
+      [
+        "care",
+        "Understand a colleague’s concern before offering help."
+      ],
+      [
+        "growth",
+        "Share knowledge in a way that builds capability."
+      ]
+    ],
+    "questions": [
+      "What help do colleagues actually want?",
+      "When does helping become doing the work for them?",
+      "What checks remain the user’s responsibility?"
+    ],
+    "strength": "Technical curiosity and generosity.",
+    "balance": "Enthusiasm can outpace others’ confidence or obscure output checks.",
+    "barrier": "Check access, accessibility, instructions and time to practise.",
+    "experiment": "Coach a willing colleague through one low-risk task, letting them operate the tool and explain the verification steps.",
+    "signal": "The colleague can repeat the task and explain when to seek help.",
+    "support": "Provide an approved practice example and clarify responsible-use boundaries.",
+    "review": "What could the colleague do independently afterwards?",
+    "dimension": 1,
+    "id": "scenario-3"
+  },
+  {
+    "level": 0,
+    "title": "Two stakeholders, one deadline",
+    "story": "A project officer receives incompatible requests from two partner teams. She says yes to both to maintain relationships, then works late and delivers neither version on time.",
+    "links": [
+      [
+        "collaborate",
+        "Understand different needs and agree a workable approach."
+      ],
+      [
+        "influence",
+        "Find common ground through trusted relationships."
+      ],
+      [
+        "foresight",
+        "Surface trade-offs and seek guidance beyond your authority."
+      ]
+    ],
+    "questions": [
+      "What outcome does each party need?",
+      "Which commitments are within your authority?",
+      "What happens if the conflict stays hidden?"
+    ],
+    "strength": "Responsiveness and relationship building.",
+    "balance": "Accommodation can conceal conflicting priorities.",
+    "barrier": "Clarify decision ownership and capacity before treating this as a confidence gap.",
+    "experiment": "Bring both requests to the decision owner with options, implications and a proposed priority; confirm the agreed commitment with both teams.",
+    "signal": "An explicit priority and realistic delivery commitment that stakeholders understand.",
+    "support": "Back a transparent priority discussion and resolve authority gaps.",
+    "review": "Which assumption about stakeholder expectations changed?",
+    "dimension": 2,
+    "id": "scenario-4"
+  },
+  {
+    "level": 0,
+    "title": "Making invisible contributions visible",
+    "story": "After a successful exercise, praise goes to the presenters. An officer notices that a colleague’s careful preparation prevented several problems. She wants to recognise the contribution without making the colleague uncomfortable.",
+    "links": [
+      [
+        "celebrate",
+        "Acknowledge a specific peer contribution."
+      ],
+      [
+        "inclusion",
+        "Notice preferences and draw less-visible colleagues into conversations."
+      ],
+      [
+        "vision",
+        "Explain how the contribution supported the shared outcome."
+      ]
+    ],
+    "questions": [
+      "What exactly did the colleague contribute?",
+      "How do they prefer to receive recognition?",
+      "Whose contributions are routinely less visible?"
+    ],
+    "strength": "Appreciation and attentiveness.",
+    "balance": "Recognition should be specific and welcome, not performative or indiscriminate.",
+    "barrier": "Check whether meeting formats privilege visible roles.",
+    "experiment": "Ask the colleague’s preference, then acknowledge the behaviour and its effect in an appropriate setting.",
+    "signal": "The contribution is understood and the colleague finds the recognition meaningful.",
+    "support": "Model specific appreciation across different types of work.",
+    "review": "What did you learn about recognising others well?",
+    "dimension": 1,
+    "id": "scenario-5"
+  },
+  {
+    "level": 1,
+    "title": "High standards, low ownership",
+    "story": "A team leader is known for technical rigour. Under deadline pressure, he rewrites staff recommendations before hearing their reasoning. Quality remains high, but the team increasingly waits for his answers.",
+    "links": [
+      [
+        "excellence",
+        "Maintain clear standards and roles."
+      ],
+      [
+        "growth",
+        "Build capability through coaching and application."
+      ],
+      [
+        "care",
+        "Understand support needs without taking over."
+      ]
+    ],
+    "questions": [
+      "When has the team delivered well without you stepping in?",
+      "What risk are you trying to prevent?",
+      "What do colleagues experience when you intervene?"
+    ],
+    "strength": "Technical rigour and accountability.",
+    "balance": "Rigour may become excessive control; delegation still needs explicit quality guardrails.",
+    "barrier": "Check experience, review criteria and genuine risk before attributing dependency to motivation.",
+    "experiment": "In two suitable reviews, ask for the officer’s recommendation and risks before offering a solution; agree when intervention is necessary.",
+    "signal": "Staff explain their reasoning and own follow-up while required quality checks remain intact.",
+    "support": "Help define guardrails and observe one review with permission.",
+    "review": "Where did you hold back productively, and where was intervention necessary?",
+    "dimension": 1,
+    "id": "scenario-6"
+  },
+  {
+    "level": 1,
+    "title": "The manager who always rescues",
+    "story": "A caring supervisor absorbs unfinished work whenever someone struggles. Staff appreciate the help, but she is exhausted and the same tasks repeatedly return to her.",
+    "links": [
+      [
+        "care",
+        "Respond to concerns with sustainable support."
+      ],
+      [
+        "resilience",
+        "Build team confidence through challenge."
+      ],
+      [
+        "excellence",
+        "Clarify ownership and remove delivery obstacles."
+      ]
+    ],
+    "questions": [
+      "Which support builds independence?",
+      "What boundary is difficult to hold?",
+      "What workload is genuinely unmanageable?"
+    ],
+    "strength": "Empathy and reliability.",
+    "balance": "Care can turn into rescuing; boundaries should not become indifference.",
+    "barrier": "Check staffing, task design and conflicting priorities.",
+    "experiment": "For one recurring task, agree ownership, a support checkpoint and an escalation threshold; address a workload issue with the decision owner.",
+    "signal": "The officer retains ownership and both parties can describe manageable commitments.",
+    "support": "Review capacity and help the leader renegotiate unrealistic demand.",
+    "review": "Did the support strengthen capability or simply move the work?",
+    "dimension": 0,
+    "id": "scenario-7"
+  },
+  {
+    "level": 1,
+    "title": "The workflow everyone bypasses",
+    "story": "A team completes training on a new digital workflow but returns to spreadsheets. The leader repeats the benefits, yet staff say the new process duplicates checks and slows urgent work.",
+    "links": [
+      [
+        "transformation",
+        "Understand adoption barriers and resolve them."
+      ],
+      [
+        "digital",
+        "Enable responsible use that improves outcomes."
+      ],
+      [
+        "vision",
+        "Connect the change to a meaningful purpose."
+      ]
+    ],
+    "questions": [
+      "What actually makes the old route easier?",
+      "Which safeguards and outcomes must remain?",
+      "Who has successfully used the new process, and how?"
+    ],
+    "strength": "Commitment to improvement and clear communication.",
+    "balance": "Advocacy can become repeated persuasion without listening.",
+    "barrier": "Investigate duplicate steps, access and performance issues.",
+    "experiment": "Observe one task end to end with consent, remove one agreed barrier and trial the revised process on a suitable task.",
+    "signal": "People use the revised route successfully with fewer workarounds and required checks retained.",
+    "support": "Secure process-owner involvement and protected practice time.",
+    "review": "What changed in use, not just in stated support?",
+    "dimension": 2,
+    "id": "scenario-8"
+  },
+  {
+    "level": 1,
+    "title": "A quiet meeting is not agreement",
+    "story": "The most confident specialists dominate discussions. A team leader asks whether everyone agrees and hears silence. Later, quieter colleagues identify risks privately.",
+    "links": [
+      [
+        "inclusion",
+        "Create conditions for different voices to contribute."
+      ],
+      [
+        "courage",
+        "Encourage challenge and address difficult issues."
+      ],
+      [
+        "collaborate",
+        "Use different perspectives to improve decisions."
+      ]
+    ],
+    "questions": [
+      "What happens when someone disagrees?",
+      "Who needs another way to contribute?",
+      "How do you respond to feedback that slows your preferred plan?"
+    ],
+    "strength": "Decisiveness and a desire to involve the team.",
+    "balance": "Speed may narrow participation; inclusion need not require unanimous agreement.",
+    "barrier": "Consider hierarchy, language, accessibility and previous responses to challenge.",
+    "experiment": "Circulate the decision question in advance, invite written concerns and explicitly discuss one dissenting view before deciding.",
+    "signal": "Relevant concerns surface earlier and the team understands how they influenced the decision.",
+    "support": "Observe facilitation and give specific feedback on responses to dissent.",
+    "review": "Whose perspective changed the decision or its safeguards?",
+    "dimension": 1,
+    "id": "scenario-9"
+  },
+  {
+    "level": 1,
+    "title": "Learning time that never survives",
+    "story": "A leader encourages development and approves courses, but learning time is repeatedly displaced by urgent work. Staff return from training without a chance to apply it.",
+    "links": [
+      [
+        "growth",
+        "Protect learning and create application opportunities."
+      ],
+      [
+        "excellence",
+        "Prioritise work and remove obstacles."
+      ],
+      [
+        "agility",
+        "Use feedback and reflection to adapt practice."
+      ]
+    ],
+    "questions": [
+      "Which capability would improve current work?",
+      "What can be stopped or rescheduled?",
+      "What would application look like within the next fortnight?"
+    ],
+    "strength": "Delivery commitment and encouragement of learning.",
+    "balance": "Responsiveness to every urgent request can consume future capability.",
+    "barrier": "Check whether priorities and capacity make the promise credible.",
+    "experiment": "Protect one practice opportunity tied to a live task and explicitly renegotiate a competing demand.",
+    "signal": "A new behaviour is applied and receives feedback, rather than only a course being completed.",
+    "support": "Support reprioritisation and arrange a coach, peer or job aid.",
+    "review": "What enabled transfer to work, and what blocked it?",
+    "dimension": 1,
+    "id": "scenario-10"
+  },
+  {
+    "level": 2,
+    "title": "Each division is right, collectively stuck",
+    "story": "Two divisions optimise their own milestones but depend on the same specialists. Escalations increase and delivery slips. A strategic leader is asked to resolve the conflict.",
+    "links": [
+      [
+        "collaborate",
+        "Align cross-team perspectives around shared goals."
+      ],
+      [
+        "influence",
+        "Build trusted partnerships across divisions."
+      ],
+      [
+        "foresight",
+        "Make resource trade-offs transparent."
+      ]
+    ],
+    "questions": [
+      "Which outcome matters across both divisions?",
+      "What incentives sustain the conflict?",
+      "Who has authority over the shared constraint?"
+    ],
+    "strength": "Advocacy for divisional delivery.",
+    "balance": "Strong local ownership can hide system-wide costs.",
+    "barrier": "Examine resource allocation and incompatible measures.",
+    "experiment": "Convene decision owners around a shared constraint map, agree a priority rule and trial it for one planning cycle.",
+    "signal": "Fewer conflicting commitments and a clearly understood trade-off, including who bears the cost.",
+    "support": "Sponsor the joint decision and resolve incentives that undermine it.",
+    "review": "Did the new rule change behaviour across teams?",
+    "dimension": 2,
+    "id": "scenario-11"
+  },
+  {
+    "level": 2,
+    "title": "Strategy that sounds good but stays abstract",
+    "story": "A director’s team can repeat the strategy, but project leads interpret its priorities differently. Work continues unchanged and some enabling teams cannot see their contribution.",
+    "links": [
+      [
+        "vision",
+        "Translate strategy into concrete outcomes."
+      ],
+      [
+        "excellence",
+        "Focus effort on what matters."
+      ],
+      [
+        "celebrate",
+        "Recognise contributions that reinforce the direction."
+      ]
+    ],
+    "questions": [
+      "What should teams do differently because of this strategy?",
+      "What should stop?",
+      "Which less-visible contributions enable the outcome?"
+    ],
+    "strength": "Strategic synthesis and ambition.",
+    "balance": "An elegant narrative may leave trade-offs and execution unclear.",
+    "barrier": "Check conflicting performance measures and unresolved decisions.",
+    "experiment": "Translate one priority with project leads into outcomes, a stop-doing choice and explicit contributions from enabling teams.",
+    "signal": "Teams independently explain the same priority and make a changed resource or work decision.",
+    "support": "Challenge ambiguous outcomes and support the stop-doing decision.",
+    "review": "Where did understanding translate into a different choice?",
+    "dimension": 1,
+    "id": "scenario-12"
+  },
+  {
+    "level": 2,
+    "title": "Promising pilots, uncertain transfer",
+    "story": "Several teams report successful pilots, but measures differ and adoption elsewhere stalls. A strategic leader wants to connect learning without forcing unsuitable solutions on every team.",
+    "links": [
+      [
+        "experiment",
+        "Connect tested practices and learning across workstreams."
+      ],
+      [
+        "transformation",
+        "Address adoption barriers and sustained impact."
+      ],
+      [
+        "foresight",
+        "Assess evidence and implications before committing resources."
+      ]
+    ],
+    "questions": [
+      "What evidence supports each claim?",
+      "Which conditions made the pilot work?",
+      "Where might transfer fail?"
+    ],
+    "strength": "Curiosity and commitment to improvement.",
+    "balance": "Enthusiasm for novelty can outrun evidence; scrutiny can also delay useful learning.",
+    "barrier": "Check ownership, interoperability and incentives for adoption.",
+    "experiment": "Choose one promising practice, agree comparable evidence and test transfer with one willing team under explicit stop criteria.",
+    "signal": "A justified adopt, adapt or stop decision based on transfer evidence.",
+    "support": "Enable a cross-team learning session and resource a bounded transfer test.",
+    "review": "Which contextual condition proved essential?",
+    "dimension": 2,
+    "id": "scenario-13"
+  },
+  {
+    "level": 2,
+    "title": "Well-being messages, unchanged workload",
+    "story": "Leaders encourage staff to take breaks, yet recurring cross-team rework keeps workloads high. A strategic leader sees that local coping measures are not addressing the source.",
+    "links": [
+      [
+        "care",
+        "Put practices in place that support well-being and safety."
+      ],
+      [
+        "excellence",
+        "Remove recurring delivery barriers."
+      ],
+      [
+        "courage",
+        "Address difficult cross-team issues openly."
+      ]
+    ],
+    "questions": [
+      "Where is avoidable work entering the system?",
+      "What do staff hesitate to say?",
+      "Which demand can you influence directly?"
+    ],
+    "strength": "Concern for people and persistence.",
+    "balance": "Encouragement can become asking people to endure a preventable problem.",
+    "barrier": "Examine handoffs, capacity and conflicting approvals.",
+    "experiment": "Map one recurring rework loop with staff, change the responsible handoff or decision rule and review its effect.",
+    "signal": "Less repeated work and credible staff feedback about demand, without hiding unfinished work.",
+    "support": "Back the process change and challenge unrealistic commitments.",
+    "review": "What structural change reduced pressure, and what remains?",
+    "dimension": 2,
+    "id": "scenario-14"
+  },
+  {
+    "level": 2,
+    "title": "Future capability, familiar opportunities",
+    "story": "A strategic leader anticipates new skill needs, but stretch assignments go repeatedly to the same reliable staff. Others attend courses without access to meaningful work.",
+    "links": [
+      [
+        "growth",
+        "Build future capabilities through stretch work and mentoring."
+      ],
+      [
+        "inclusion",
+        "Address bias in access to opportunity."
+      ],
+      [
+        "agility",
+        "Help teams adopt skills and adjust to emerging needs."
+      ]
+    ],
+    "questions": [
+      "Who gets opportunities, and on what evidence?",
+      "Which future capability is most consequential?",
+      "What support would make a stretch safe and useful?"
+    ],
+    "strength": "Trust in proven contributors and foresight about capability.",
+    "balance": "Reliance on familiar performers can narrow the pipeline.",
+    "barrier": "Check selection practices, workload and mentor capacity.",
+    "experiment": "Define transparent criteria for one stretch assignment, consider a wider pool and pair the selected officer with a mentor and feedback checkpoints.",
+    "signal": "The officer demonstrates a new capability and access decisions are explainable.",
+    "support": "Release capacity and sponsor mentoring across domains.",
+    "review": "What changed in capability and in access to development?",
+    "dimension": 1,
+    "id": "scenario-15"
+  },
+  {
+    "level": 3,
+    "title": "A consequential decision without certainty",
+    "story": "An organisational leader must commit resources under uncertain operating conditions. Waiting has costs, but some consequences may be hard to reverse. Advisors disagree.",
+    "links": [
+      [
+        "foresight",
+        "Make timely, ethical decisions using wider context."
+      ],
+      [
+        "courage",
+        "Take accountability amid ambiguity."
+      ],
+      [
+        "resilience",
+        "Prepare the organisation to respond to disruption."
+      ]
+    ],
+    "questions": [
+      "What is reversible and what is not?",
+      "Whose consequences are absent from the discussion?",
+      "What would make you revisit the decision?"
+    ],
+    "strength": "Conviction and responsibility.",
+    "balance": "Conviction can suppress uncertainty; caution can leave costly indecision.",
+    "barrier": "Check evidence quality, decision rights and access to dissenting expertise.",
+    "experiment": "For a suitable strategic decision, document options, ethical implications, uncertainty and explicit review triggers; seek a credible contrary view.",
+    "signal": "A timely, accountable decision with understood trade-offs and monitored triggers.",
+    "support": "Use a peer or governing forum to challenge assumptions and review consequences.",
+    "review": "Which assumption changed, and did the review trigger work?",
+    "dimension": 0,
+    "id": "scenario-16"
+  },
+  {
+    "level": 3,
+    "title": "One direction, different partner interests",
+    "story": "An agency leader proposes a long-term capability direction. Partners support the ambition but interpret priorities differently and hesitate to commit resources.",
+    "links": [
+      [
+        "vision",
+        "Create shared long-term purpose."
+      ],
+      [
+        "influence",
+        "Shape direction through trusted leadership networks."
+      ],
+      [
+        "collaborate",
+        "Align partnerships around systemic challenges."
+      ]
+    ],
+    "questions": [
+      "What matters to each partner?",
+      "Where is there genuine alignment versus polite assent?",
+      "Which trade-offs must become explicit?"
+    ],
+    "strength": "Future orientation and strategic storytelling.",
+    "balance": "A compelling narrative cannot substitute for negotiated commitments.",
+    "barrier": "Understand mandates, resource cycles and accountability across partners.",
+    "experiment": "Test the direction in structured partner discussions and agree one joint commitment with ownership, boundaries and a review point.",
+    "signal": "Partners can explain the shared outcome and make a concrete aligned decision.",
+    "support": "Invite peer challenge and ensure partnership commitments have accountable owners.",
+    "review": "Which part of the direction changed because you listened?",
+    "dimension": 2,
+    "id": "scenario-17"
+  },
+  {
+    "level": 3,
+    "title": "AI ambition meets workforce readiness",
+    "story": "A leader is asked to accelerate AI adoption. Investment proposals emphasise tools, while staff question role changes, data readiness and who remains accountable for decisions.",
+    "links": [
+      [
+        "digital",
+        "Align technology, workforce and partnerships with strategic goals."
+      ],
+      [
+        "transformation",
+        "Sustain change through people, resources and processes."
+      ],
+      [
+        "growth",
+        "Build learning and workforce readiness at scale."
+      ]
+    ],
+    "questions": [
+      "What public-value outcome justifies the investment?",
+      "Which work and accountability will change?",
+      "What capability and governance gaps must be addressed first?"
+    ],
+    "strength": "Ambition and openness to emerging technology.",
+    "balance": "Technology enthusiasm can outpace readiness; uncertainty should not preclude responsible learning.",
+    "barrier": "Examine data quality, workforce capacity, governance and decision ownership.",
+    "experiment": "Require one proposed initiative to include work redesign, capability development, accountable decisions and outcome measures before staged commitment.",
+    "signal": "Investment choices reflect readiness and value, with named human accountability and credible learning provision.",
+    "support": "Convene technology, workforce and governance leaders around the same outcome.",
+    "review": "What changed in the investment decision beyond the technology choice?",
+    "dimension": 2,
+    "id": "scenario-18"
+  },
+  {
+    "level": 3,
+    "title": "Trust during disruption",
+    "story": "A major disruption forces repeated priority changes. Staff hear confident messages that do not acknowledge uncertainty, while middle managers struggle to explain difficult trade-offs.",
+    "links": [
+      [
+        "resilience",
+        "Prepare people and systems to sustain progress."
+      ],
+      [
+        "care",
+        "Address systemic effects on people’s well-being."
+      ],
+      [
+        "courage",
+        "Acknowledge difficult issues and take accountability."
+      ]
+    ],
+    "questions": [
+      "What do you know, and what can you not yet promise?",
+      "Which groups bear disproportionate pressure?",
+      "What decisions would make the message credible?"
+    ],
+    "strength": "Composure and determination.",
+    "balance": "Reassurance can become minimising legitimate concern.",
+    "barrier": "Check information flows, workload allocation and continuity arrangements.",
+    "experiment": "Communicate knowns, unknowns and next decision points; pair the message with one tangible demand reduction and a channel for concerns.",
+    "signal": "Managers can explain priorities honestly and staff see a concrete response to pressure.",
+    "support": "Ask peers to challenge blind spots and assign owners to continuity and workload actions.",
+    "review": "Where did actions strengthen or undermine trust?",
+    "dimension": 0,
+    "id": "scenario-19"
+  },
+  {
+    "level": 3,
+    "title": "What the organisation chooses to celebrate",
+    "story": "Visible launches receive recognition, while maintenance, knowledge-sharing and careful risk prevention rarely do. Leaders want a learning culture, but recognition signals favour individual heroics.",
+    "links": [
+      [
+        "celebrate",
+        "Create a culture that values meaningful contributions."
+      ],
+      [
+        "growth",
+        "Support learning and knowledge-sharing at scale."
+      ],
+      [
+        "inclusion",
+        "Ensure people and different contributions are heard and valued."
+      ]
+    ],
+    "questions": [
+      "What behaviours do current recognition practices reward?",
+      "Which contributions are overlooked?",
+      "How could recognition reinforce collective learning without creating a quota exercise?"
+    ],
+    "strength": "Pride in achievement and desire to inspire.",
+    "balance": "Celebrating heroics can obscure collective effort or unsustainable work.",
+    "barrier": "Review nomination access, criteria and the visibility of enabling work.",
+    "experiment": "Review one recognition practice with diverse contributors and pilot criteria that include learning, prevention and collective contribution.",
+    "signal": "A broader, evidence-based range of contributions is recognised and staff understand why.",
+    "support": "Invite independent challenge to the criteria and resource the review.",
+    "review": "What behaviour did the revised recognition encourage?",
+    "dimension": 1,
+    "id": "scenario-20"
+  }
+]

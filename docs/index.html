@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#251442" />
+    <meta
+      name="description"
+      content="A clickable prototype for testing IDEAL growth conversations."
+    />
+    <title>IDEAL Growth Conversations — Test Prototype</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23251442'/%3E%3Cpath d='M18 15h10v34H18zm16 0h6l8 17-8 17h-6l8-17z' fill='%23fff'/%3E%3Ccircle cx='51' cy='14' r='4' fill='%238eb9ff'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <noscript>This prototype needs JavaScript enabled.</noscript>
+
+    <div id="app" class="app-shell" aria-live="polite">
+      <header class="topbar">
+        <a class="brand" href="#" data-action="home" aria-label="IDEAL home">
+          <span class="brand-mark">iDEAL<span></span></span>
+          <span class="brand-copy"><strong>Growth conversations</strong><small>Clickable testing prototype</small></span>
+        </a>
+        <div class="topbar-actions">
+          <span id="save-state" class="save-state">Saved on this device</span>
+          <button class="button ghost compact" data-action="open-feedback">Give feedback</button>
+          <button class="button ghost compact" data-action="reset">Start fresh</button>
+        </div>
+      </header>
+
+      <div id="loading" class="loading-screen">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Preparing the IDEAL prototype…</p>
+      </div>
+
+      <div id="workspace" class="workspace" hidden>
+        <aside class="sidebar" aria-label="Journey navigation">
+          <div class="persona-switch" role="group" aria-label="Test perspective">
+            <button data-persona="officer" class="active">Officer</button>
+            <button data-persona="supervisor">Supervisor</button>
+          </div>
+
+          <div class="level-control">
+            <label for="level-select">Leadership level</label>
+            <select id="level-select"></select>
+          </div>
+
+          <nav id="step-nav" class="step-nav"></nav>
+
+          <div class="sidebar-note">
+            <strong>Testing safely</strong>
+            <p>Use fictional situations only. Your entries stay in this browser and are not sent anywhere.</p>
+          </div>
+        </aside>
+
+        <main id="main" class="main" tabindex="-1"></main>
+      </div>
+    </div>
+
+    <dialog id="feedback-dialog" class="modal">
+      <form method="dialog" class="modal-card" id="feedback-form">
+        <div class="modal-heading">
+          <div>
+            <span class="eyebrow">TESTER FEEDBACK</span>
+            <h2>How did the experience feel?</h2>
+          </div>
+          <button class="icon-button" value="cancel" aria-label="Close feedback">×</button>
+        </div>
+
+        <label class="field">
+          <span>I tested the app mainly as</span>
+          <select id="feedback-persona">
+            <option>Officer</option>
+            <option>Supervisor</option>
+            <option>Both</option>
+          </select>
+        </label>
+
+        <fieldset class="rating-field">
+          <legend>How intuitive was the journey?</legend>
+          <div class="scale" id="feedback-rating">
+            <label><input type="radio" name="rating" value="1" />1</label>
+            <label><input type="radio" name="rating" value="2" />2</label>
+            <label><input type="radio" name="rating" value="3" />3</label>
+            <label><input type="radio" name="rating" value="4" />4</label>
+            <label><input type="radio" name="rating" value="5" />5</label>
+          </div>
+          <div class="scale-caption"><span>Confusing</span><span>Very intuitive</span></div>
+        </fieldset>
+
+        <label class="field">
+          <span>What helped you most?</span>
+          <textarea id="feedback-helpful" rows="3" placeholder="A screen, prompt or feature…"></textarea>
+        </label>
+        <label class="field">
+          <span>Where did you hesitate or feel unsure?</span>
+          <textarea id="feedback-friction" rows="3" placeholder="Tell us where and why…"></textarea>
+        </label>
+        <label class="field">
+          <span>What should change before a wider pilot?</span>
+          <textarea id="feedback-change" rows="3" placeholder="One practical improvement…"></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button class="button ghost" value="cancel">Continue testing</button>
+          <button class="button primary" value="default" data-action="export-feedback">Download feedback</button>
+        </div>
+        <p class="privacy-line">The downloaded file can be sent to the prototype owner. This page does not transmit feedback automatically.</p>
+      </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
