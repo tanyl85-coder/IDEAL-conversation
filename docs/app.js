@@ -358,7 +358,7 @@ function bindDynamicInputs() {
     ensureReflection(activeReflection).rating = input.value;
     saveState();
   }));
-  $('[data-action-bind]').forEach((input) => {
+  document.querySelectorAll('[data-action-bind]').forEach((input) => {
     if (input.dataset.actionBind === "attribute") return;
     input.addEventListener("input", () => {
       const action = state.actions.find((item) => item.id === input.dataset.actionId);
