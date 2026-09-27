@@ -358,27 +358,15 @@ function bindDynamicInputs() {
     ensureReflection(activeReflection).rating = input.value;
     saveState();
   }));
-  $('[data-action-bind]').forEach((input) => input.addEventListener(input.matches("select") ? "change" : "input", () => {
-    const action = state.actions.find((item) => item.id === input.dataset.actionId);
-    if (!action) return;
-    const key = input.dataset.actionBind;
-    if (key === "attribute") {
-      const refreshSuccess = canRefreshGuidance(action.success, action.guidanceSignal, "signal");
-      const refreshSupport = canRefreshGuidance(action.support, action.guidanceSupport, "support");
-      action.attribute = input.value;
-      const guidance = guidanceForAttribute(action.attribute);
-      if (refreshSuccess) action.success = guidance?.signal || "";
-      if (refreshSupport) action.support = guidance?.support || "";
-      action.guidanceSignal = guidance?.signal || "";
-      action.guidanceSupport = guidance?.support || "";
+  $('[data-action-bind]').forEach((input) => {
+    if (input.dataset.actionBind === "attribute") return;
+    input.addEventListener("input", () => {
+      const action = state.actions.find((item) => item.id === input.dataset.actionId);
+      if (!action) return;
+      action[input.dataset.actionBind] = input.value;
       saveState();
-      render();
-      toast(`Suggestions updated for ${attr(action.attribute)?.name || "the selected attribute"}.`);
-      return;
-    }
-    action[key] = input.value;
-    saveState();
-  }));
+    });
+  });
 }
 
 function updateActionAttribute(input) {
