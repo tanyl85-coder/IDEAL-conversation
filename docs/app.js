@@ -34,6 +34,7 @@ const blankState = () => ({
   reflections: {},
   supervisorSuggestion: null,
   sharedObservation: "",
+  supervisorRoutedAt: "",
   officerResponse: "",
   actions: [],
   practiceNotes: [],
@@ -232,7 +233,13 @@ function renderReflect() {
       <label class="field"><span>Which perspective is most useful to explore?</span><small class="helper">Consider whether this attribute was overplayed as a strength or underplayed as a development area.</small><select data-reflection-bind="pattern"><option value="" ${!reflection.pattern ? "selected" : ""}>Choose a perspective</option><option ${reflection.pattern === "Possible overplay" ? "selected" : ""}>Possible overplay</option><option ${reflection.pattern === "Possible underplay" ? "selected" : ""}>Possible underplay</option></select></label>
       <label class="field"><span>What strength helped? What barrier or trade-off may also be present?</span><textarea data-reflection-bind="exploration" placeholder="Consider strengths, workload, confidence, opportunity, expectations or the way work is organised.">${esc(reflection.exploration)}</textarea></label>
     </section>
-    ${footer("focus", "conversation", "Prepare for the conversation")}`;
+    <div class="route-handoff">
+      <div class="flow-footer">
+        <button class="button ghost" data-step="focus">Back</button>
+        <button class="button primary" data-action="route-supervisor" ${state.supervisorRoutedAt ? "disabled" : ""}>${state.supervisorRoutedAt ? "✓ Routed to my supervisor" : "Route to my supervisor"}</button>
+      </div>
+      <p class="helper">Once your supervisor has provided inputs, you’ll be alerted. Then go to <strong>4. Shared conversation</strong> to arrange a meetup or call.</p>
+    </div>`;
 }
 
 function suggestionCard() {
@@ -521,6 +528,13 @@ document.addEventListener("click", (event) => {
   if (action === "start") { state.level = Number($("#welcome-level").value); state.started = true; state.step = "situation"; addEvent("Journey started", levelName()); saveState(); render(); }
   if (action === "reset") reset();
   if (action === "open-feedback") $("#feedback-dialog").showModal();
+  if (action === "route-supervisor") {
+    state.supervisorRoutedAt ||= new Date().toISOString();
+    addEvent("Routed to supervisor");
+    saveState("Routed to supervisor");
+    render();
+    toast("Your reflection has been routed to your supervisor.");
+  }
   if (action === "clear-scenario") { state.scenario = ""; saveState(); render(); }
   if (action === "use-scenario-focus") {
     const ids = scenario().links.map(([id]) => id);
