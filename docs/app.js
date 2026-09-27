@@ -268,10 +268,14 @@ function guidanceForAttribute(attributeId) {
   if (!attributeId) return scenario() || null;
   const linked = (item) => item.links?.some(([id]) => id === attributeId);
   const current = scenario();
-  if (current?.level === state.level && linked(current)) return current;
-  return scenarios.find((item) => item.level === state.level && linked(item))
-    || scenarios.find(linked)
+  const candidates = scenarios.filter(linked);
+  const sameLevel = candidates.filter((item) => item.level === state.level);
+  return sameLevel.find((item) => item.links?.[0]?.[0] === attributeId)
+    || sameLevel.find((item) => item.id !== current?.id)
+    || candidates.find((item) => item.links?.[0]?.[0] === attributeId)
+    || candidates.find((item) => item.id !== current?.id)
     || current
+    || candidates[0]
     || null;
 }
 
