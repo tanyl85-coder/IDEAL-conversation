@@ -65,6 +65,19 @@ function loadState() {
   }
 }
 
+function normaliseFocusSelection() {
+  const validIds = new Set(framework?.attributes?.map((item) => item.id) || []);
+  const selected = Array.isArray(state.selected) ? state.selected : [];
+  const discussion = Array.isArray(state.discussion) ? state.discussion : [];
+  const nextSelected = [...new Set(selected.filter((id) => !validIds.size || validIds.has(id)))].slice(0, 5);
+  state.selected = nextSelected;
+  const selectedIds = new Set(state.selected);
+  const nextDiscussion = [...new Set(discussion.filter((id) => selectedIds.has(id)))].slice(0, 2);
+  const changed = JSON.stringify(selected) !== JSON.stringify(nextSelected) || JSON.stringify(discussion) !== JSON.stringify(nextDiscussion);
+  state.discussion = nextDiscussion;
+  if (changed) saveState();
+}
+
 function saveState(message = "Saved on this device") {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   const save = $("#save-state");
@@ -180,6 +193,7 @@ function selectionSummary() {
 }
 
 function renderFocus() {
+  normaliseFocusSelection();
   return `${pageHeading("OFFICER · STEP 2", "Choose your development focus", "Select 3–5 attributes for this development cycle, then highlight up to two for the next conversation.", `${state.selected.length}/5 selected`)}
     ${selectionSummary()}
     <section class="panel">
@@ -481,9 +495,11 @@ document.addEventListener("click", (event) => {
   if (target.dataset.removeAttribute) { selectAttribute(target.dataset.removeAttribute); return; }
   if (target.dataset.discussion) {
     const id = target.dataset.discussion;
-    if (state.discussion.includes(id)) state.discussion = state.discussion.filter((item) => item !== id);
-    else if (state.discussion.length < 2) state.discussion.push(id);
+    const discussion = new Set((Array.isArray(state.discussion) ? state.discussion : []).filter((item) => state.selected.includes(item)));
+    if (discussion.has(id)) discussion.delete(id);
+    else if (discussion.size < 2) discussion.add(id);
     else toast("Choose no more than two attributes for this conversation.");
+    state.discussion = [...discussion].slice(0, 2);
     saveState(); render(); return;
   }
   if (target.dataset.reflection) { activeReflection = target.dataset.reflection; render(); return; }
@@ -571,6 +587,7 @@ async function init() {
       fetch("data/framework.json").then((response) => response.json()),
       fetch("data/scenarios.json?v=20260927-8").then((response) => response.json()),
     ]);
+    normaliseFocusSelection();
     framework.levels ??= LEVELS;
     $("#level-select").innerHTML = framework.levels.map((level, index) => `<option value="${index}">${esc(level)}</option>`).join("");
     $("#loading").hidden = true;
