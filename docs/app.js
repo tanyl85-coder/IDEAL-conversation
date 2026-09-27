@@ -195,7 +195,8 @@ function renderFocus() {
 }
 
 function ensureReflection(id) {
-  state.reflections[id] ||= { rating: "", evidence: "", pattern: "Build on", exploration: "", supervisorRating: "", supervisorNote: "" };
+  state.reflections[id] ||= { rating: "", evidence: "", pattern: "", exploration: "", supervisorRating: "", supervisorNote: "" };
+  if (state.reflections[id].pattern === "Build on") state.reflections[id].pattern = "";
   return state.reflections[id];
 }
 
@@ -212,9 +213,9 @@ function renderReflect() {
     <section class="panel accent">
       <span class="eyebrow">${esc(item.trait)} · ${esc(levelName())}</span><h2>${esc(item.name)}</h2>
       <blockquote class="descriptor">${esc(descriptor(item.id))}</blockquote>
-      <label class="field"><span>What happened? What did you do, and what was the effect?</span><textarea data-reflection-bind="evidence" placeholder="A specific recent example…">${esc(reflection.evidence)}</textarea></label>
-      <div class="field"><span>Based on this example, to what extent did you demonstrate the descriptor?</span><div class="rating-options">${ratings.map((rating) => `<label><input type="radio" name="rating" value="${esc(rating)}" ${reflection.rating === rating ? "checked" : ""}/>${esc(rating)}</label>`).join("")}</div></div>
-      <label class="field"><span>Which perspective is most useful to explore?</span><select data-reflection-bind="pattern"><option ${reflection.pattern === "Build on" ? "selected" : ""}>Build on</option><option ${reflection.pattern === "Possible overplay" ? "selected" : ""}>Possible overplay</option><option ${reflection.pattern === "Possible underplay" ? "selected" : ""}>Possible underplay</option></select></label>
+      <label class="field"><span>Think of a situation—or feedback—that showed you could demonstrate more or less of this attribute. What happened? What did you do—or not do? What was the effect?</span><textarea data-reflection-bind="evidence" placeholder="A specific recent example…">${esc(reflection.evidence)}</textarea></label>
+      <div class="field"><span>Based on this example, to what extent did you demonstrate this attribute?</span><div class="rating-options">${ratings.map((rating) => `<label><input type="radio" name="rating" value="${esc(rating)}" ${reflection.rating === rating ? "checked" : ""}/><span>${esc(rating)}</span></label>`).join("")}</div></div>
+      <label class="field"><span>Which perspective is most useful to explore?</span><small class="helper">Consider whether this attribute was overplayed as a strength or underplayed as a development area.</small><select data-reflection-bind="pattern"><option value="" ${!reflection.pattern ? "selected" : ""}>Choose a perspective</option><option ${reflection.pattern === "Possible overplay" ? "selected" : ""}>Possible overplay</option><option ${reflection.pattern === "Possible underplay" ? "selected" : ""}>Possible underplay</option></select></label>
       <label class="field"><span>What strength helped? What barrier or trade-off may also be present?</span><textarea data-reflection-bind="exploration" placeholder="Consider strengths, workload, confidence, opportunity, expectations or the way work is organised.">${esc(reflection.exploration)}</textarea></label>
     </section>
     ${footer("focus", "conversation", "Prepare for the conversation")}`;

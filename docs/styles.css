@@ -192,9 +192,9 @@ p { color: var(--muted); }
 .reflection-tabs button { min-width: 180px; min-height: 44px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: #5a586b; }
 .reflection-tabs button.active { border-color: #9477bd; background: var(--purple-100); color: var(--purple-800); }
 .descriptor { margin: 16px 0 20px; padding: 18px 20px; border-left: 3px solid #9576bd; background: #faf8fd; color: #504c63; }
-.rating-options { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 9px; }
-.rating-options label { display: flex; align-items: center; gap: 9px; min-height: 54px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; color: #555267; font-size: .83rem; }
-.rating-options label:last-child { grid-column: 1 / -1; }
+.rating-options { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 9px; }
+.rating-options label { display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 9px; color: #555267; font-size: .83rem; cursor: pointer; }
+.rating-options input[type="radio"] { width: 18px; height: 18px; min-height: 0; flex: 0 0 18px; margin: 0; padding: 0; accent-color: var(--purple-600); }
 .rating-options label:has(input:checked) { border-color: #9274bc; background: var(--purple-50); }
 
 .perspective-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -248,6 +248,7 @@ p { color: var(--muted); }
   .main { padding: 34px 25px 60px; }
   .attribute-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .welcome-grid { grid-template-columns: 1fr; }
+  .rating-options { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 
 @media (max-width: 760px) {
@@ -268,7 +269,6 @@ p { color: var(--muted); }
   .scenario-grid, .perspective-grid, .two-column { grid-template-columns: 1fr; }
   .attribute-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .rating-options { grid-template-columns: 1fr; }
-  .rating-options label:last-child { grid-column: auto; }
   .selection-summary { top: 8px; }
   .flow-footer { flex-wrap: wrap; }
   .flow-footer .button { flex: 1; min-width: 130px; }
