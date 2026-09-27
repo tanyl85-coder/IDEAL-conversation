@@ -264,9 +264,25 @@ function renderPrepare() {
     ${footer("overview", "conversation", "Continue the shared conversation")}`;
 }
 
+function guidanceForAttribute(attributeId) {
+  if (!attributeId) return scenario() || null;
+  const linked = (item) => item.links?.some(([id]) => id === attributeId);
+  const current = scenario();
+  if (current?.level === state.level && linked(current)) return current;
+  return scenarios.find((item) => item.level === state.level && linked(item))
+    || scenarios.find(linked)
+    || current
+    || null;
+}
+
+function canRefreshGuidance(value, lastSuggestion, key) {
+  if (!String(value || "").trim() || value === lastSuggestion) return true;
+  return scenarios.some((item) => item[key] === value);
+}
+
 function actionEditor(item, index) {
   return `<article class="action-card"><div class="action-card-heading"><h3>Growth action ${index + 1}</h3><button class="button ghost danger" data-remove-action="${item.id}">Remove</button></div>
-    <div class="two-column"><label class="field"><span>Primary IDEAL attribute</span><select data-action-bind="attribute" data-action-id="${item.id}"><option value="">Choose an attribute</option>${state.selected.map((id) => `<option value="${id}" ${item.attribute === id ? "selected" : ""}>${esc(attr(id)?.name)}</option>`).join("")}</select></label><label class="field"><span>Review date</span><input type="date" data-action-bind="date" data-action-id="${item.id}" value="${esc(item.date || "")}" /></label></div>
+    <div class="two-column"><label class="field"><span>Primary IDEAL attribute</span><select data-action-bind="attribute" data-action-id="${item.id}"><option value="">Choose an attribute</option>${state.selected.map((id) => `<option value="${id}" ${item.attribute === id ? "selected" : ""}>${esc(attr(id)?.name)}</option>`).join("")}</select><small class="helper">Changing the attribute refreshes the suggested progress and supervisor support unless you have edited them.</small></label><label class="field"><span>Review date</span><input type="date" data-action-bind="date" data-action-id="${item.id}" value="${esc(item.date || "")}" /></label></div>
     <label class="field"><span>What behaviour will you test?</span><textarea data-action-bind="behaviour" data-action-id="${item.id}" placeholder="One small, observable behaviour…">${esc(item.behaviour)}</textarea></label>
     <label class="field"><span>Where will you practise it?</span><input data-action-bind="opportunity" data-action-id="${item.id}" value="${esc(item.opportunity)}" placeholder="A meeting, project, review or assignment" /></label>
     <div class="two-column"><label class="field"><span>What progress could be observed?</span><textarea data-action-bind="success" data-action-id="${item.id}" placeholder="A concrete signal…">${esc(item.success)}</textarea></label><label class="field"><span>What supervisor support would help?</span><textarea data-action-bind="support" data-action-id="${item.id}" placeholder="Feedback, rehearsal, access, priorities…">${esc(item.support)}</textarea></label></div>
@@ -338,9 +354,25 @@ function bindDynamicInputs() {
     ensureReflection(activeReflection).rating = input.value;
     saveState();
   }));
-  $$('[data-action-bind]').forEach((input) => input.addEventListener("input", () => {
+  $('[data-action-bind]').forEach((input) => input.addEventListener(input.matches("select") ? "change" : "input", () => {
     const action = state.actions.find((item) => item.id === input.dataset.actionId);
-    if (action) action[input.dataset.actionBind] = input.value;
+    if (!action) return;
+    const key = input.dataset.actionBind;
+    if (key === "attribute") {
+      const refreshSuccess = canRefreshGuidance(action.success, action.guidanceSignal, "signal");
+      const refreshSupport = canRefreshGuidance(action.support, action.guidanceSupport, "support");
+      action.attribute = input.value;
+      const guidance = guidanceForAttribute(action.attribute);
+      if (refreshSuccess) action.success = guidance?.signal || "";
+      if (refreshSupport) action.support = guidance?.support || "";
+      action.guidanceSignal = guidance?.signal || "";
+      action.guidanceSupport = guidance?.support || "";
+      saveState();
+      render();
+      toast(`Suggestions updated for ${attr(action.attribute)?.name || "the selected attribute"}.`);
+      return;
+    }
+    action[key] = input.value;
     saveState();
   }));
 }
@@ -386,7 +418,9 @@ function selectAttribute(id) {
 
 function addAction() {
   if (state.actions.length >= 2) return;
-  state.actions.push({ id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()), attribute: state.discussion[0] || state.selected[0] || "", behaviour: scenario()?.experiment || "", opportunity: "", success: scenario()?.signal || "", support: scenario()?.support || "", date: "" });
+  const attribute = state.discussion[0] || state.selected[0] || "";
+  const guidance = guidanceForAttribute(attribute);
+  state.actions.push({ id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()), attribute, behaviour: scenario()?.experiment || "", opportunity: "", success: guidance?.signal || "", support: guidance?.support || "", guidanceSignal: guidance?.signal || "", guidanceSupport: guidance?.support || "", date: "" });
   addEvent("Growth action added");
   saveState();
   render();
