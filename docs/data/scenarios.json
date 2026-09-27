@@ -1,8 +1,8 @@
 [
   {
     "level": 0,
-    "title": "The concern nobody has raised",
-    "story": "A junior engineer notices an unusual test result just before a milestone review. A respected specialist says it is probably noise. The engineer has checked the data but stays silent, worried about delaying the team.",
+    "title": "I need to raise a concern before the review",
+    "story": "I noticed an unusual test result just before a milestone review. A respected specialist said it was probably noise. I checked the data, but I hesitated to speak up because I worried about delaying the team.",
     "links": [
       [
         "courage",
@@ -34,8 +34,8 @@
   },
   {
     "level": 0,
-    "title": "A trial that did not work",
-    "story": "An analyst tests a new method on a bounded task. It performs worse than the existing approach. She is disappointed and stops sharing ideas, although the trial exposed a useful limitation.",
+    "title": "I ran a trial that did not work",
+    "story": "I tested a new method on a bounded task. It performed worse than the existing approach. I felt disappointed and was tempted to stop sharing ideas, although the trial exposed a useful limitation.",
     "links": [
       [
         "resilience",
@@ -67,8 +67,8 @@
   },
   {
     "level": 0,
-    "title": "The helpful digital enthusiast",
-    "story": "An officer finds an approved tool that reduces repetitive work. Peers ask for help, but he starts completing their tasks for them. One colleague quietly avoids the tool after making an error.",
+    "title": "I helped with a digital tool, then took over",
+    "story": "I found an approved tool that reduced repetitive work. When peers asked for help, I started completing tasks for them instead of helping them learn. One colleague quietly avoided the tool after making an error.",
     "links": [
       [
         "digital",
@@ -100,8 +100,8 @@
   },
   {
     "level": 0,
-    "title": "Two stakeholders, one deadline",
-    "story": "A project officer receives incompatible requests from two partner teams. She says yes to both to maintain relationships, then works late and delivers neither version on time.",
+    "title": "I said yes to two conflicting requests",
+    "story": "I received incompatible requests from two partner teams. I said yes to both because I wanted to maintain the relationships. I then worked late and delivered neither version on time.",
     "links": [
       [
         "collaborate",
@@ -133,8 +133,8 @@
   },
   {
     "level": 0,
-    "title": "Making invisible contributions visible",
-    "story": "After a successful exercise, praise goes to the presenters. An officer notices that a colleague’s careful preparation prevented several problems. She wants to recognise the contribution without making the colleague uncomfortable.",
+    "title": "I want to recognise work people did not see",
+    "story": "After a successful exercise, most praise went to the presenters. I noticed that a colleague’s careful preparation had prevented several problems. I wanted to recognise that contribution without making the colleague uncomfortable.",
     "links": [
       [
         "celebrate",
@@ -166,8 +166,8 @@
   },
   {
     "level": 1,
-    "title": "High standards, low ownership",
-    "story": "A team leader is known for technical rigour. Under deadline pressure, he rewrites staff recommendations before hearing their reasoning. Quality remains high, but the team increasingly waits for his answers.",
+    "title": "I keep taking over to protect quality",
+    "story": "I lead a team known for technical rigour. Under deadline pressure, I rewrite staff recommendations before hearing their reasoning. Quality stays high, but the team increasingly waits for my answers.",
     "links": [
       [
         "excellence",
@@ -199,8 +199,8 @@
   },
   {
     "level": 1,
-    "title": "The manager who always rescues",
-    "story": "A caring supervisor absorbs unfinished work whenever someone struggles. Staff appreciate the help, but she is exhausted and the same tasks repeatedly return to her.",
+    "title": "I keep rescuing unfinished work",
+    "story": "When someone struggles, I absorb the unfinished work. Staff appreciate the help, but I am exhausted and the same tasks keep returning to me.",
     "links": [
       [
         "care",
@@ -232,8 +232,8 @@
   },
   {
     "level": 1,
-    "title": "The workflow everyone bypasses",
-    "story": "A team completes training on a new digital workflow but returns to spreadsheets. The leader repeats the benefits, yet staff say the new process duplicates checks and slows urgent work.",
+    "title": "My team keeps bypassing the new workflow",
+    "story": "My team completed training on a new digital workflow but keeps returning to spreadsheets. I keep repeating the benefits, yet staff say the new process duplicates checks and slows urgent work.",
     "links": [
       [
         "transformation",
@@ -265,8 +265,8 @@
   },
   {
     "level": 1,
-    "title": "A quiet meeting is not agreement",
-    "story": "The most confident specialists dominate discussions. A team leader asks whether everyone agrees and hears silence. Later, quieter colleagues identify risks privately.",
+    "title": "My quiet meeting is not agreement",
+    "story": "In meetings, the most confident specialists often dominate. I ask whether everyone agrees and hear silence. Later, quieter colleagues identify risks privately.",
     "links": [
       [
         "inclusion",
@@ -298,8 +298,8 @@
   },
   {
     "level": 1,
-    "title": "Learning time that never survives",
-    "story": "A leader encourages development and approves courses, but learning time is repeatedly displaced by urgent work. Staff return from training without a chance to apply it.",
+    "title": "I approve learning, but work crowds it out",
+    "story": "I encourage development and approve courses, but learning time is repeatedly displaced by urgent work. Staff return from training without a chance to apply it.",
     "links": [
       [
         "growth",
@@ -331,8 +331,8 @@
   },
   {
     "level": 2,
-    "title": "Each division is right, collectively stuck",
-    "story": "Two divisions optimise their own milestones but depend on the same specialists. Escalations increase and delivery slips. A strategic leader is asked to resolve the conflict.",
+    "title": "I am optimising my division while the system gets stuck",
+    "story": "I see two divisions optimising their own milestones while depending on the same specialists. Escalations are increasing and delivery is slipping. I am asked to help resolve the conflict.",
     "links": [
       [
         "collaborate",
@@ -364,8 +364,8 @@
   },
   {
     "level": 2,
-    "title": "Strategy that sounds good but stays abstract",
-    "story": "A director’s team can repeat the strategy, but project leads interpret its priorities differently. Work continues unchanged and some enabling teams cannot see their contribution.",
+    "title": "People can repeat the strategy, but not their part in it",
+    "story": "My team can repeat the strategy, but project leads interpret its priorities differently. Work continues unchanged, and some enabling teams cannot see their contribution.",
     "links": [
       [
         "vision",
@@ -397,8 +397,8 @@
   },
   {
     "level": 2,
-    "title": "Promising pilots, uncertain transfer",
-    "story": "Several teams report successful pilots, but measures differ and adoption elsewhere stalls. A strategic leader wants to connect learning without forcing unsuitable solutions on every team.",
+    "title": "Our pilots work locally, but learning does not travel",
+    "story": "Several teams report successful pilots, but their measures differ and adoption elsewhere stalls. I want to connect learning without forcing an unsuitable solution on every team.",
     "links": [
       [
         "experiment",
@@ -430,8 +430,8 @@
   },
   {
     "level": 2,
-    "title": "Well-being messages, unchanged workload",
-    "story": "Leaders encourage staff to take breaks, yet recurring cross-team rework keeps workloads high. A strategic leader sees that local coping measures are not addressing the source.",
+    "title": "We talk about well-being while rework keeps growing",
+    "story": "We encourage staff to take breaks, yet recurring cross-team rework keeps workloads high. I can see that local coping measures are not addressing the source.",
     "links": [
       [
         "care",
@@ -463,8 +463,8 @@
   },
   {
     "level": 2,
-    "title": "Future capability, familiar opportunities",
-    "story": "A strategic leader anticipates new skill needs, but stretch assignments go repeatedly to the same reliable staff. Others attend courses without access to meaningful work.",
+    "title": "Stretch opportunities keep going to the same people",
+    "story": "I anticipate new skill needs, but stretch assignments keep going to the same reliable staff. Others attend courses without access to meaningful work.",
     "links": [
       [
         "growth",
@@ -496,8 +496,8 @@
   },
   {
     "level": 3,
-    "title": "A consequential decision without certainty",
-    "story": "An organisational leader must commit resources under uncertain operating conditions. Waiting has costs, but some consequences may be hard to reverse. Advisors disagree.",
+    "title": "I must decide before the evidence is complete",
+    "story": "I must commit resources under uncertain operating conditions. Waiting has costs, but some consequences may be hard to reverse. My advisers disagree.",
     "links": [
       [
         "foresight",
@@ -529,8 +529,8 @@
   },
   {
     "level": 3,
-    "title": "One direction, different partner interests",
-    "story": "An agency leader proposes a long-term capability direction. Partners support the ambition but interpret priorities differently and hesitate to commit resources.",
+    "title": "Partners support the ambition, but not the same priorities",
+    "story": "I have proposed a long-term capability direction. Partners support the ambition but interpret priorities differently and hesitate to commit resources.",
     "links": [
       [
         "vision",
@@ -562,8 +562,8 @@
   },
   {
     "level": 3,
-    "title": "AI ambition meets workforce readiness",
-    "story": "A leader is asked to accelerate AI adoption. Investment proposals emphasise tools, while staff question role changes, data readiness and who remains accountable for decisions.",
+    "title": "I want AI adoption, but the workforce needs clarity",
+    "story": "I am asked to accelerate AI adoption. Investment proposals emphasise tools, while staff question role changes, data readiness and who remains accountable for decisions.",
     "links": [
       [
         "digital",
@@ -595,8 +595,8 @@
   },
   {
     "level": 3,
-    "title": "Trust during disruption",
-    "story": "A major disruption forces repeated priority changes. Staff hear confident messages that do not acknowledge uncertainty, while middle managers struggle to explain difficult trade-offs.",
+    "title": "I need to communicate during disruption without pretending certainty",
+    "story": "A major disruption is forcing repeated priority changes. I need to communicate with confidence without pretending certainty, while middle managers struggle to explain difficult trade-offs.",
     "links": [
       [
         "resilience",
@@ -628,8 +628,8 @@
   },
   {
     "level": 3,
-    "title": "What the organisation chooses to celebrate",
-    "story": "Visible launches receive recognition, while maintenance, knowledge-sharing and careful risk prevention rarely do. Leaders want a learning culture, but recognition signals favour individual heroics.",
+    "title": "What we celebrate tells people what matters",
+    "story": "I notice that visible launches receive recognition, while maintenance, knowledge-sharing and careful risk prevention rarely do. I want a learning culture, but our recognition signals still favour individual heroics.",
     "links": [
       [
         "celebrate",
