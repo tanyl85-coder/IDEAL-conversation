@@ -1,4 +1,5 @@
 const STORAGE_KEY = "ideal-growth-prototype-v1";
+const LEVELS = ["Individual Contributor", "Team Leader", "Strategic Leader", "Visionary Leader"];
 
 const steps = {
   officer: [
@@ -516,6 +517,7 @@ async function init() {
       fetch("data/framework.json").then((response) => response.json()),
       fetch("data/scenarios.json").then((response) => response.json()),
     ]);
+    framework.levels ??= LEVELS;
     $("#level-select").innerHTML = framework.levels.map((level, index) => `<option value="${index}">${esc(level)}</option>`).join("");
     $("#loading").hidden = true;
     $("#workspace").hidden = false;
