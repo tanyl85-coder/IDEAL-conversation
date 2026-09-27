@@ -569,7 +569,7 @@ async function init() {
   try {
     [framework, scenarios] = await Promise.all([
       fetch("data/framework.json").then((response) => response.json()),
-      fetch("data/scenarios.json").then((response) => response.json()),
+      fetch("data/scenarios.json?v=20260927-8").then((response) => response.json()),
     ]);
     framework.levels ??= LEVELS;
     $("#level-select").innerHTML = framework.levels.map((level, index) => `<option value="${index}">${esc(level)}</option>`).join("");
