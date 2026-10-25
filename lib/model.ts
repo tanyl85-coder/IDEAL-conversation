@@ -4,9 +4,24 @@ export const traits=['Inspire','Dare to Try','Empathise','Aim High','Learn & Rel
 export const ratings=['Small extent','Moderate extent','Large extent','Not enough opportunity to observe'];
 const note=z.string().max(6000);
 const reflection=z.object({rating:z.enum(['Small extent','Moderate extent','Large extent','Not enough opportunity to observe']).optional(),evidence:note.default(''),pattern:z.enum(['Build on','Possible overplay','Possible underplay']).default('Build on'),exploration:note.default(''),supervisorRating:z.enum(['Small extent','Moderate extent','Large extent','Not enough opportunity to observe']).optional(),supervisorNote:note.default('')});
-export const dataSchema=z.object({level:z.number().int().min(0).max(3),mode:z.enum(['prepare','together']),context:note,selected:z.array(z.string()).max(5),reflections:z.record(reflection),actions:z.array(z.object({id:z.string(),attribute:z.string(),also:z.array(z.string()).max(4).optional(),behaviour:note,opportunity:note,success:note,support:note,date:z.string().max(10)})).max(2),discussion:z.array(z.string()).max(2).default([]),aspiration:note.default(''),question:note.default(''),scenario:z.string().default(''),changeReason:note.default(''),focusDecisions:z.record(z.object({status:z.enum(['Paused','Moved on']),reason:note,actionDisposition:z.enum(['Paused with focus','Completed with reflection','Replaced by current actions'])})).default({}),agreement:z.boolean().default(false)});
+export const reciprocalFeedbackSchema=z.object({
+ supervisorLevel:z.number().int().min(0).max(3).nullable().default(null),
+ attribute:z.string().max(80).default(''),
+ invitation:note.default(''),
+ commitment:note.default(''),
+ reviewDate:z.string().max(10).default(''),
+ supervisorReview:note.default(''),
+ officerFeedback:z.object({situation:note,impact:note,request:note}).nullable().default(null),
+ response:z.enum(['not-yet','shared','verbal','skip']).default('not-yet'),
+ officerReview:note.default('')
+});
+export const emptyReciprocalFeedback=reciprocalFeedbackSchema.parse({});
+export type ReciprocalFeedback=z.infer<typeof reciprocalFeedbackSchema>;
+export type FeedbackDraft={situation:string;impact:string;request:string};
+export const blankFeedbackDraft:FeedbackDraft={situation:'',impact:'',request:''};
+export const dataSchema=z.object({reciprocalFeedback:reciprocalFeedbackSchema.default(emptyReciprocalFeedback),level:z.number().int().min(0).max(3),mode:z.enum(['prepare','together']),context:note,selected:z.array(z.string()).max(5),reflections:z.record(reflection),actions:z.array(z.object({id:z.string(),attribute:z.string(),also:z.array(z.string()).max(4).optional(),behaviour:note,opportunity:note,success:note,support:note,date:z.string().max(10)})).max(2),discussion:z.array(z.string()).max(2).default([]),aspiration:note.default(''),question:note.default(''),scenario:z.string().default(''),changeReason:note.default(''),focusDecisions:z.record(z.object({status:z.enum(['Paused','Moved on']),reason:note,actionDisposition:z.enum(['Paused with focus','Completed with reflection','Replaced by current actions'])})).default({}),agreement:z.boolean().default(false)});
 export type JourneyData=z.infer<typeof dataSchema>;
-export const blankData:JourneyData={level:0,mode:'prepare',context:'',selected:[],reflections:{},actions:[],discussion:[],aspiration:'',question:'',scenario:'',changeReason:'',focusDecisions:{},agreement:false};
+export const blankData:JourneyData={reciprocalFeedback:emptyReciprocalFeedback,level:0,mode:'prepare',context:'',selected:[],reflections:{},actions:[],discussion:[],aspiration:'',question:'',scenario:'',changeReason:'',focusDecisions:{},agreement:false};
 export const emptyReflection:JourneyData["reflections"][string]={evidence:'',pattern:'Build on' as const,exploration:'',supervisorNote:''};
 export type Journey={id:string;owner_id:string;supervisor_id:string|null;owner_name:string;supervisor_name?:string;shared:number;status:string;version:number;data:JourneyData;updated:string;meta?:JourneyMeta};
 

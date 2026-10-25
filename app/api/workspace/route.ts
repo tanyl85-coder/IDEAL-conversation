@@ -1,6 +1,6 @@
 import { getChatGPTUser } from '@/app/chatgpt-auth';
 import { db,now,fail,publicJourney } from '@/lib/server';
-import { dataSchema,blankData } from '@/lib/model';
+import { dataSchema,blankData,reciprocalFeedbackSchema,emptyReciprocalFeedback } from '@/lib/model';
 import { supervisorGuide } from '@/lib/supervisor-guide';
 import framework from '@/lib/framework.json';
 const json=(body:unknown,init:ResponseInit={})=>Response.json(body,{...init,headers:{'Cache-Control':'private, no-store',...init.headers}});
@@ -45,6 +45,8 @@ export async function POST(request:Request){try{
  if(b.action==='save'||b.action==='share'){
  const previous=structuredClone(data);if(status==='endorsed'&&!meta.agreedPlan){meta.agreedPlan=previous;meta.agreedAt=row.updated;}
  const parsed=dataSchema.safeParse(b.data);if(!parsed.success)fail('Check the form values. Notes must be under 6,000 characters and there can be at most two actions.');const next=parsed.data;
+ // Reciprocal feedback has its own explicit sharing operation and role ownership.
+ if(JSON.stringify(next.reciprocalFeedback)!==JSON.stringify(data.reciprocalFeedback))fail('Save reciprocal feedback using its own sharing controls.',403);
  if(next.selected.some(id=>!ids.has(id))||new Set(next.selected).size!==next.selected.length)fail('Choose valid, distinct IDEAL attributes.');
  if(row.shared&&next.level!==data.level)fail('The leadership level is fixed after sharing. Start a new conversation for a different scope.');
  if(Object.keys(next.reflections).some(id=>!ids.has(id)))fail('Unknown reflection attribute.');
@@ -58,7 +60,7 @@ export async function POST(request:Request){try{
  for(const id of ids){const prev=data.reflections[id]||{},r=next.reflections[id]||{};for(const k of ['supervisorRating','supervisorNote'])if(((prev as any)[k]||'')!==((r as any)[k]||''))fail('Only the assigned supervisor can record their observations.',403);}
  }
  if(!owner&&(JSON.stringify(next.actions)!==JSON.stringify(data.actions)||next.question!==data.question))next.agreement=false;
- if(owner){supervisorId=b.supervisorId||null;if(supervisorId){if(supervisorId===u.userId)fail('Choose a different person as supervisor.');const s=await db().prepare('SELECT user_id FROM members WHERE user_id=? AND workspace_id=? AND role IN (?,?)').bind(supervisorId,m.workspace_id,'supervisor','admin').first();if(!s)fail('Choose a supervisor in your workspace.');}if(row.supervisor_id!==supervisorId){shared=0;for(const r of Object.values(next.reflections)){delete r.supervisorRating;r.supervisorNote='';}next.agreement=false;}}
+ if(owner){supervisorId=b.supervisorId||null;if(supervisorId){if(supervisorId===u.userId)fail('Choose a different person as supervisor.');const s=await db().prepare('SELECT user_id FROM members WHERE user_id=? AND workspace_id=? AND role IN (?,?)').bind(supervisorId,m.workspace_id,'supervisor','admin').first();if(!s)fail('Choose a supervisor in your workspace.');}if(row.supervisor_id!==supervisorId){next.reciprocalFeedback=structuredClone(emptyReciprocalFeedback);shared=0;for(const r of Object.values(next.reflections)){delete r.supervisorRating;r.supervisorNote='';}next.agreement=false;}}
  const removed=data.selected.filter(id=>!next.selected.includes(id)),added=next.selected.filter(id=>!data.selected.includes(id));
  if((removed.length||added.length)&&row.shared&&!next.changeReason.trim())fail('Briefly explain why your focus is changing.');
  for(const id of removed)if(!next.focusDecisions[id]?.reason.trim())fail('Choose Paused or Moved on and record a reason for each removed focus.');
@@ -71,6 +73,22 @@ export async function POST(request:Request){try{
  data=next;
  if(b.action==='share'){if(!owner)fail('Only the officer can share this conversation.',403);if(!supervisorId)fail('Choose your supervisor before sharing.');if(data.selected.length<3)fail('Choose 3–5 attributes before sharing.');shared=1;kind='Shared for conversation';}
  status=meta.agreedPlan?(material||row.supervisor_id!==supervisorId?'revision':row.status):shared?'shared':'draft';
+ }else if(b.action==='reciprocalFeedback'){
+ if(!row.shared)fail('Share this journey with your assigned supervisor before exchanging feedback.');
+ const parsed=reciprocalFeedbackSchema.safeParse(b.feedback);
+ if(!parsed.success)fail('Check the feedback fields. Notes must be under 6,000 characters.');
+ const next=parsed.data,previous=data.reciprocalFeedback;
+ const supervisorFields=['supervisorLevel','attribute','invitation','commitment','reviewDate','supervisorReview'] as const;
+ const officerFields=['officerFeedback','response','officerReview'] as const;
+ for(const key of owner?supervisorFields:officerFields)if(JSON.stringify(next[key])!==JSON.stringify(previous[key]))fail('Only the author can change their own feedback or invitation.',403);
+ if(next.attribute&&!ids.has(next.attribute))fail('Choose a valid IDEAL attribute.');
+ if((next.invitation.trim()||next.attribute)&&(next.supervisorLevel===null||!next.attribute||!next.invitation.trim()))fail('Choose your own leadership level, one IDEAL attribute and an invitation question.');
+ if(next.reviewDate&&!/^\d{4}-\d{2}-\d{2}$/.test(next.reviewDate))fail('Choose a valid feedback review date.');
+ if(next.response==='shared'&&(!next.officerFeedback?.situation.trim()||!next.officerFeedback?.impact.trim()||!next.officerFeedback?.request.trim()))fail('Add the situation, impact and what would help before sharing.');
+ if(next.response!=='shared')next.officerFeedback=null;
+ data.reciprocalFeedback=next;
+ kind=owner?'Officer updated reciprocal feedback':'Supervisor updated reciprocal feedback';
+ // Optional reciprocal feedback never changes plan agreement or endorsement.
  }else if(b.action==='endorse'){
  if(!supervisor)fail('Only the assigned supervisor can endorse the plan.',403);if(status==='endorsed')fail('This plan is already endorsed.');if(!data.agreement)fail('The officer needs to confirm the current plan first.');if(data.selected.length<3||data.selected.length>5)fail('Agree on 3–5 attributes.');
 

@@ -233,6 +233,7 @@ function renderReflect() {
       <label class="field"><span>Which perspective is most useful to explore?</span><small class="helper">Consider whether this attribute was overplayed as a strength or underplayed as a development area.</small><select data-reflection-bind="pattern"><option value="" ${!reflection.pattern ? "selected" : ""}>Choose a perspective</option><option ${reflection.pattern === "Possible overplay" ? "selected" : ""}>Possible overplay</option><option ${reflection.pattern === "Possible underplay" ? "selected" : ""}>Possible underplay</option></select></label>
       <label class="field"><span>What strength helped? What barrier or trade-off may also be present?</span><textarea data-reflection-bind="exploration" placeholder="Consider strengths, workload, confidence, opportunity, expectations or the way work is organised.">${esc(reflection.exploration)}</textarea></label>
     </section>
+    ${reciprocalPanel("reflect")}
     <div class="route-handoff">
       <div class="flow-footer">
         <button class="button ghost" data-step="focus">Back</button>
@@ -240,6 +241,27 @@ function renderReflect() {
       </div>
       <p class="helper">Once your supervisor has provided inputs, you’ll be alerted. Then go to <strong>4. Shared conversation</strong> to arrange a meetup or call.</p>
     </div>`;
+}
+
+
+const EMPTY_RECIPROCAL = () => ({ supervisorLevel: "", attribute: "", invitation: "", commitment: "", reviewDate: "", supervisorReview: "", officerReview: "", officerFeedback: null, response: "not-yet" });
+// Deliberately excluded from localStorage, exports and events.
+let privateFeedbackDraft = { situation: "", impact: "", request: "" };
+function reciprocal() { return { ...EMPTY_RECIPROCAL(), ...(state.reciprocalFeedback || {}) }; }
+function feedbackValue(label, value) { return value ? `<div class="review-action"><strong>${esc(label)}</strong><p class="feedback-copy">${esc(value)}</p></div>` : ""; }
+function reciprocalPanel(stage) {
+ const f = reciprocal(), supervisor = state.persona === "supervisor";
+ const chosen = attr(f.attribute);
+ const invitation = f.invitation ? `<div class="feedback-invitation"><span class="eyebrow">SUPERVISOR · ${esc(chosen?.name)} · ${esc(LEVELS[Number(f.supervisorLevel)])}</span><blockquote>${esc(f.invitation)}</blockquote></div>` : '<p class="helper">Your supervisor can invite a perspective on one of their own IDEAL attributes. You can prepare a question or request of your own too.</p>';
+ const feedback = f.response === "shared" && f.officerFeedback;
+ const shared = feedback ? `<div class="feedback-invitation"><span class="status-badge">Shared by the officer</span>${feedbackValue("A recent moment", feedback.situation)}${feedbackValue("The impact", feedback.impact)}${feedbackValue("What would help next time", feedback.request)}</div>` : '<p class="helper">No written feedback has been shared. Make room to speak, pass or return to this later.</p>';
+ const prepare = `<details class="feedback-preparation"><summary>Prepare what you might say · optional</summary><p>Acknowledge a strength, ask a question or suggest a change. Sharing is your choice.</p><p class="private-note">These preparation notes stay only in this open page. They are never saved on this device or included in exports until you choose Share. They clear on reload or Start fresh. This prototype uses one device and simulated roles; use fictional examples.</p>${[["situation","What happened? Describe a specific moment."],["impact","What difference did it make for you or the work?"],["request","What would help next time? Something to continue or try."]].map(([key,label])=>`<label class="field"><span>${label}</span><textarea maxlength="6000" data-private-feedback="${key}">${esc(privateFeedbackDraft[key])}</textarea></label>`).join("")}${stage === "conversation" ? '<button class="button primary" data-action="share-upward-feedback">Share these words with my supervisor</button>' : '<p class="helper">Bring these notes to Shared conversation. Nothing here is shared automatically.</p>'}</details>`;
+ if (stage === "prepare" && supervisor) return `<section class="panel reciprocal-panel"><span class="eyebrow">GROWTH GOES BOTH WAYS</span><h2>What could you learn from your officer?</h2><p>After exploring their development, invite a perspective on your own leadership. Ask about a recent experience, and be open to something you did not expect.</p><div class="two-column"><label class="field"><span>Your own leadership level</span><select id="feedback-supervisor-level"><option value="">Choose your level</option>${LEVELS.map((l,i)=>`<option value="${i}" ${String(i)===String(f.supervisorLevel)?"selected":""}>${esc(l)}</option>`).join("")}</select></label><label class="field"><span>Your IDEAL attribute to practise</span><select id="feedback-supervisor-attribute"><option value="">Choose one attribute</option>${framework.attributes.map(a=>`<option value="${a.id}" ${a.id===f.attribute?"selected":""}>${esc(a.name)}</option>`).join("")}</select></label></div><div id="feedback-own-descriptor">${chosen&&f.supervisorLevel!==""?`<blockquote class="descriptor">${esc(chosen.descriptors[Number(f.supervisorLevel)])}</blockquote>`:""}</div><div class="private-note"><strong>An invitation to adapt</strong><p>When I set standards or review work, what helps you deliver well? When does my involvement make it harder to take ownership?</p></div><label class="field"><span>Your invitation to feedback</span><textarea id="feedback-invitation" maxlength="6000">${esc(f.invitation)}</textarea></label><p class="helper">The invitation is shared. Responding is optional and never required for the officer’s plan agreement.</p><button class="button primary" data-action="publish-feedback-invitation">Share my feedback invitation</button></section>`;
+ if (stage === "reflect" && !supervisor) return `<section class="panel reciprocal-panel"><span class="eyebrow">GROWTH GOES BOTH WAYS</span><h2>What would help you thrive?</h2><p>Your conversation is also a chance to explain how your supervisor’s approach affects you and the work. You decide what to share.</p>${invitation}${prepare}<p class="helper">You can discuss this verbally, skip it or return later. It does not affect completion of your development plan.</p></section>`;
+ if (stage === "conversation") return `<section class="panel reciprocal-panel"><span class="eyebrow">AFTER EXPLORING THE OFFICER’S DEVELOPMENT</span><h2>Make space for feedback both ways.</h2>${invitation}${supervisor?'<div class="private-note"><p>“We’ve explored what you want to develop. I’d also like to understand how I can support you better. Would you be comfortable sharing what I should continue or adjust?”</p><strong>Listen → thank → clarify → agree a next step.</strong><p>“What I’m hearing is… Have I understood you correctly?”</p></div>':""}${shared}${!supervisor?prepare+'<div class="button-row"><button class="button secondary" data-action="upward-feedback-verbal">I prefer to discuss this verbally</button><button class="button ghost" data-action="upward-feedback-skip">Skip for now</button></div>':""}<p class="helper">Optional, named feedback. No extra ratings or requirement to respond. Choosing verbal or skip removes the current written feedback from this prototype.</p></section>`;
+ if (stage === "plan") return `<section class="panel reciprocal-panel"><span class="eyebrow">THE SUPERVISOR’S PART</span><h2>One change in how I support you</h2><p>This optional commitment sits alongside the officer’s one or two growth actions.</p>${supervisor?`<label class="field"><span>What will you continue or do differently as a supervisor?</span><textarea id="feedback-commitment" maxlength="6000">${esc(f.commitment)}</textarea></label><label class="field"><span>When will you check whether it helped? (optional)</span><input type="date" id="feedback-review-date" value="${esc(f.reviewDate)}"/></label><button class="button secondary" data-action="save-feedback-commitment">Save my support commitment</button>`:feedbackValue("Supervisor commitment",f.commitment)||'<p class="helper">Your supervisor can record a small change in their support after your conversation.</p>'}${f.reviewDate?`<p>Revisit on ${esc(f.reviewDate)}</p>`:""}</section>`;
+ if (stage === "review") return `<section class="panel reciprocal-panel"><span class="eyebrow">KEEP LEARNING FROM EACH OTHER</span><h2>Did the change in support help?</h2>${feedbackValue("Supervisor commitment",f.commitment)}${feedbackValue("Officer’s perspective",f.officerReview)}${feedbackValue("Supervisor’s perspective",f.supervisorReview)}<label class="field"><span>${supervisor?"What did you try, what did you hear, and what will you adjust?":"What helped, and what would you like to continue or adjust?"}</span><textarea id="feedback-follow-up" maxlength="6000">${esc(supervisor?f.supervisorReview:f.officerReview)}</textarea></label><button class="button secondary" data-action="save-feedback-follow-up">Share my follow-up reflection</button><p class="helper">Shared in this test journey. It does not change the officer’s agreed plan.</p></section>`;
+ return "";
 }
 
 function suggestionCard() {
@@ -258,6 +280,7 @@ function renderConversation() {
     <section class="panel"><div class="panel-heading"><div><h2>Suggested focus</h2><p>A supervisor suggestion stays a proposal until it is discussed.</p></div></div>${suggestionCard()}
       ${isSupervisor ? `<div class="two-column"><label class="field"><span>Suggest an IDEAL attribute</span><select id="suggestion-attribute"><option value="">Choose an attribute</option>${framework.attributes.map((item) => `<option value="${item.id}" ${state.supervisorSuggestion?.attribute === item.id ? "selected" : ""}>${esc(item.name)}</option>`).join("")}</select></label><label class="field"><span>What have you observed, and what difference could developing this make?</span><textarea id="suggestion-reason" placeholder="Use a concrete example.">${esc(state.supervisorSuggestion?.reason || "")}</textarea></label></div><button class="button secondary" data-action="save-suggestion">Save suggestion</button>` : state.supervisorSuggestion ? `<label class="field"><span>Your response</span><textarea data-bind="officerResponse" placeholder="What fits, what does not, and what would you like to discuss?">${esc(state.officerResponse)}</textarea></label>` : ""}
     </section>
+    ${reciprocalPanel("conversation")}
     ${footer(isSupervisor ? "prepare" : "reflect", "plan", isSupervisor ? "Support the plan" : "Agree a practical action")}`;
 }
 
@@ -282,6 +305,7 @@ function renderPrepare() {
     <div class="private-note"><strong>Private preparation</strong><p>This page helps you think. It does not create a second assessment record.</p></div>
     <section class="panel">${supervisorStages.map(([title, prompts], index) => `<details class="prompt-stage" ${index === 0 ? "open" : ""}><summary>${index + 1}. ${esc(title)}</summary><ul>${prompts.map((prompt) => `<li>${esc(prompt)}</li>`).join("")}</ul></details>`).join("")}</section>
     ${chosen ? `<section class="panel subtle"><span class="eyebrow">SCENARIO LENS</span><h2>${esc(chosen.title)}</h2><p><strong>Assumption to check:</strong> ${esc(chosen.barrier)}</p><p><strong>Possible support:</strong> ${esc(chosen.support)}</p><p><strong>Review question:</strong> ${esc(chosen.review)}</p></section>` : ""}
+    ${reciprocalPanel("prepare")}
     ${footer("overview", "conversation", "Continue the shared conversation")}`;
 }
 
@@ -321,6 +345,7 @@ function renderPlan() {
       ${state.actions.map(actionEditor).join("") || `<div class="scenario-detail"><h3>Start with one small experiment</h3><p>${esc(scenario()?.experiment || "Choose one behaviour you can practise in a real work situation.")}</p></div>`}
       <button class="button secondary" data-action="add-action" ${state.actions.length >= 2 ? "disabled" : ""}>+ Add a growth action</button>
     </section>
+    ${reciprocalPanel("plan")}
     <section class="panel subtle"><h2>Agreement</h2><p>Agreement confirms the conversation and current plan. It does not require identical ratings or perspectives.</p><div class="button-row"><button class="button ${state.agreed ? "secondary" : "primary"}" data-action="toggle-agreement">${state.agreed ? "✓ Plan agreed — reopen" : "Confirm the agreed plan"}</button></div></section>
     ${footer("conversation", "review", "Review the journey")}`;
 }
@@ -334,6 +359,7 @@ function renderReview() {
     <section class="panel"><h2>${isSupervisor ? "Review question" : "Add a practice note"}</h2><p>${esc(scenario()?.review || "What did you try, what happened and what will you retain or change?")}</p>${!isSupervisor ? `<label class="field"><span>What did you try, and what did you learn?</span><textarea id="practice-note" placeholder="A brief note from real work…"></textarea></label><button class="button secondary" data-action="add-practice-note">Add to journey</button>` : `<p class="helper">Discuss the most recent note and check what support is needed next.</p>`}
       ${state.practiceNotes.length ? `<div class="timeline">${state.practiceNotes.map((note) => `<div class="timeline-item"><strong>${formatDate(note.date)}</strong><small>${esc(note.text)}</small></div>`).join("")}</div>` : ""}</section>
     <section class="panel subtle"><h2>Journey history</h2><div class="timeline">${historyEvents().map((event) => `<div class="timeline-item"><strong>${esc(event.label)}</strong><small>${formatDate(event.date)}${event.detail ? ` · ${esc(event.detail)}` : ""}</small></div>`).join("")}</div></section>
+    ${reciprocalPanel("review")}
     <div class="button-row"><button class="button primary" data-action="open-feedback">Give feedback on the prototype</button><button class="button ghost" data-action="export-journey">Download my test journey</button></div>
     ${footer("plan", "", "")}`;
 }
@@ -367,6 +393,9 @@ function render() {
 }
 
 function bindDynamicInputs() {
+ $$('[data-private-feedback]').forEach(input=>input.addEventListener('input',()=>{privateFeedbackDraft[input.dataset.privateFeedback]=input.value;}));
+ const updateOwnDescriptor=()=>{const a=attr($('#feedback-supervisor-attribute')?.value),level=$('#feedback-supervisor-level')?.value,node=$('#feedback-own-descriptor');if(node)node.innerHTML=a&&level!==''?'<blockquote class="descriptor">'+esc(a.descriptors[Number(level)])+'</blockquote>':'';};
+ ['#feedback-supervisor-level','#feedback-supervisor-attribute'].forEach(selector=>$(selector)?.addEventListener('change',updateOwnDescriptor));
   $$('[data-bind]').forEach((input) => input.addEventListener("input", () => {
     state[input.dataset.bind] = input.value;
     saveState();
@@ -479,6 +508,7 @@ function download(filename, payload) {
 
 function reset() {
   if (!confirm("Start a fresh test journey? This clears the entries saved in this browser.")) return;
+  privateFeedbackDraft={situation:'',impact:'',request:''};
   localStorage.removeItem(STORAGE_KEY);
   state = blankState();
   activeReflection = "";
@@ -524,7 +554,19 @@ document.addEventListener("click", (event) => {
   const action = target.dataset.action;
   if (!action) return;
   event.preventDefault();
-  if (action === "home") { state.started = false; saveState(); render(); }
+  if (action === "publish-feedback-invitation" && state.persona === "supervisor") {
+ const supervisorLevel=$('#feedback-supervisor-level').value,attribute=$('#feedback-supervisor-attribute').value,invitation=$('#feedback-invitation').value.trim();
+ if(supervisorLevel===''||!attribute||!invitation)return toast('Choose your own level, one attribute and an invitation question.');
+ state.reciprocalFeedback={...reciprocal(),supervisorLevel:Number(supervisorLevel),attribute,invitation};addEvent('Supervisor invited feedback',attr(attribute).name);saveState();render();toast('Invitation added to the shared conversation.');return;
+ }
+ if(action === "share-upward-feedback" && state.persona === "officer"){
+ if(Object.values(privateFeedbackDraft).some(v=>!v.trim()))return toast('Add the situation, impact and what would help before sharing.');
+ state.reciprocalFeedback={...reciprocal(),response:'shared',officerFeedback:{...privateFeedbackDraft}};privateFeedbackDraft={situation:'',impact:'',request:''};addEvent('Officer shared feedback');saveState();render();return;
+ }
+ if(['upward-feedback-verbal','upward-feedback-skip'].includes(action) && state.persona === "officer"){state.reciprocalFeedback={...reciprocal(),response:action.endsWith('verbal')?'verbal':'skip',officerFeedback:null};saveState();render();return;}
+ if(action === "save-feedback-commitment" && state.persona === "supervisor"){state.reciprocalFeedback={...reciprocal(),commitment:$('#feedback-commitment').value,reviewDate:$('#feedback-review-date').value};addEvent('Supervisor updated support commitment');saveState();render();return;}
+ if(action === "save-feedback-follow-up"){const note=$('#feedback-follow-up').value.trim();if(!note)return toast('Add a short reflection first.');state.reciprocalFeedback={...reciprocal(),[state.persona==='supervisor'?'supervisorReview':'officerReview']:note};addEvent('Reciprocal feedback follow-up shared');saveState();render();return;}
+ if (action === "home") { state.started = false; saveState(); render(); }
   if (action === "start") { state.level = Number($("#welcome-level").value); state.started = true; state.step = "situation"; addEvent("Journey started", levelName()); saveState(); render(); }
   if (action === "reset") reset();
   if (action === "open-feedback") $("#feedback-dialog").showModal();

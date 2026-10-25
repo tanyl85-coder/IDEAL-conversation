@@ -38,5 +38,39 @@ as('officer');j=(await get()).journeys[0];j.data.selected=['excellence','care','
 as('hr');const hr=await get();assert.equal(hr.journeys.length,0);assert.equal(hr.insights.suppressed,true);await get('?history='+id,403);
 for(let n=1;n<=4;n++){as('hr');const {code}=await call({action:'invite',role:'officer'});as('cohort-'+n);await call({action:'join',code});const created=await call({action:'createJourney'});const row=(await get()).journeys[0];row.data.selected=['excellence','care','transformation'];for(const key of row.data.selected)row.data.reflections[key]={...JSON.parse(JSON.stringify(model.namespace.emptyReflection))};await call({action:'share',id:created.id,version:row.version,data:row.data,supervisorId:'manager'});}
 as('hr');const aggregate=(await get()).insights;assert.equal(aggregate.suppressed,false);assert.equal(aggregate.people,5);assert.equal(aggregate.themes.length,3);assert.ok(aggregate.themes.every(t=>t.count===5));assert.ok(!JSON.stringify(aggregate).includes('Specific observed example'));
+
+// Reciprocal feedback is optional, author-owned and independent of agreement.
+as('officer');j=(await get()).journeys.find(x=>x.id===id);j.data.agreement=true;
+await call({action:'save',id,version:j.version,data:j.data,supervisorId:'manager'});
+as('manager');j=(await get()).journeys.find(x=>x.id===id);await call({action:'endorse',id,version:j.version});
+as('manager');j=(await get()).journeys.find(x=>x.id===id);
+const officerLevelBefore=j.data.level,statusBefore=j.status,agreementBefore=j.data.agreement,agreedBefore=JSON.stringify(j.meta.agreedPlan);
+const invitation={...j.data.reciprocalFeedback,supervisorLevel:2,attribute:'care',invitation:'When do I help you feel heard? What could I change?'};
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:invitation});
+j=(await get()).journeys.find(x=>x.id===id);assert.equal(j.data.reciprocalFeedback.supervisorLevel,2);assert.equal(j.data.level,officerLevelBefore);
+assert.equal(j.status,statusBefore);assert.equal(j.data.agreement,agreementBefore);assert.equal(JSON.stringify(j.meta.agreedPlan),agreedBefore);
+const forged={...j.data,reciprocalFeedback:{...invitation,invitation:'Bypass explicit feedback operation'}};
+await call({action:'save',id,version:j.version,data:forged},403);
+as('officer');j=(await get()).journeys.find(x=>x.id===id);
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...invitation,invitation:'Replace supervisor invitation'}},403);
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...invitation,response:'shared',officerFeedback:{situation:'',impact:'',request:''}}},400);
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...invitation,response:'shared',officerFeedback:{situation:'You repeated our completed check.',impact:'I hesitated to decide independently.',request:'Could we agree decision boundaries?'}}});
+as('manager');j=(await get()).journeys.find(x=>x.id===id);
+assert.equal(j.data.reciprocalFeedback.officerFeedback.request,'Could we agree decision boundaries?');
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...j.data.reciprocalFeedback,officerFeedback:{situation:'Alter staff words',impact:'x',request:'x'}}},403);
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...j.data.reciprocalFeedback,commitment:'Ask before stepping in.',reviewDate:'2026-11-10',supervisorReview:'I left the next check with the officer.'}});
+as('other');await call({action:'reciprocalFeedback',id,version:1,feedback:invitation},403);
+as('hr');assert.equal((await get()).journeys.length,0);assert.ok(!JSON.stringify((await get()).insights).includes('decision boundaries'));
+as('officer');j=(await get()).journeys.find(x=>x.id===id);
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...j.data.reciprocalFeedback,officerReview:'The clearer boundary helped.'}});
+j=(await get()).journeys.find(x=>x.id===id);assert.equal(j.data.reciprocalFeedback.supervisorReview,'I left the next check with the officer.');
+assert.equal(j.status,statusBefore);assert.equal(j.data.agreement,agreementBefore);assert.equal(JSON.stringify(j.meta.agreedPlan),agreedBefore);
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:{...j.data.reciprocalFeedback,response:'verbal'}});
+j=(await get()).journeys.find(x=>x.id===id);assert.equal(j.data.reciprocalFeedback.officerFeedback,null);
+await call({action:'save',id,version:j.version,data:j.data,supervisorId:'hr'});
+j=(await get()).journeys.find(x=>x.id===id);assert.equal(j.shared,0);assert.equal(j.data.reciprocalFeedback.invitation,'');assert.equal(j.data.reciprocalFeedback.officerReview,'');
+await call({action:'reciprocalFeedback',id,version:j.version,feedback:j.data.reciprocalFeedback},400);
+console.log('PASS: reciprocal invitation, independent supervisor level, author ownership, explicit sharing, required feedback fields, HR exclusion, no agreement impact, verbal response and reassignment reset.');
+
 as('outside');await call({action:'createWorkspace',name:'Different workspace'});assert.equal((await get()).journeys.length,0);await call({action:'review',id,version:j.version,note:'Unauthorized'},404);
 console.log('PASS: sign-in gate, workspace invitations, invitation replay, private drafts, cross-user access, separate perspectives, stale saves, officer agreement, supervisor-only endorsement, preserved agreed snapshots, supervisor preparation access, suggestions, revisions, multiple action attributes, review history, HR privacy.');
