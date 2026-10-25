@@ -28,6 +28,17 @@ Sample mode uses fictional people and temporary in-memory state only. It never s
 - Workspace API and authorization: `app/api/workspace/route.ts`.
 - Schema and migration: `db/schema.ts`, `drizzle/`.
 - Isolated workflow and authorization checks: `node --experimental-vm-modules tests/workflow.mjs`.
+- Reciprocal prototype privacy and interaction checks: `node tests/reciprocal-prototype.mjs`.
 - Build through the Sites build helper. Preserve the generated migrations and logical `DB` binding.
 
 Local browser checks cover focus selection, reflection, action creation, saving, agreement and required endorsement observations. Workflow checks use in-memory SQLite and simulated dispatch identities, not real user accounts. The managed preview does not support WebMCP; that optional read-only integration is feature-detected and inactive when unsupported.
+
+## Reciprocal feedback: growth goes both ways
+
+Supervisor preparation includes an invitation about one of the supervisor's own IDEAL attributes, with descriptors for their explicitly chosen leadership level. Officers can prepare a recent situation, impact and request in Reflect, then choose whether to share those words in Shared conversation, discuss verbally or skip. The supervisor can make a separate support commitment, and both people can revisit it in Review.
+
+Preparation text stays only in React memory while the page is open. It is excluded from journey saves, routing, WebMCP, history and exports until the officer explicitly shares it. It clears on reload or when changing journeys or assigned supervisors. Shared feedback is named, retained in shared history, and visible to the officer and assigned supervisor; it is not anonymous. HR aggregation still reads only the officer's selected focus attributes.
+
+The JSON record adds backwards-compatible defaults without a database migration. A dedicated API operation enforces separate authorship; ordinary saves cannot change reciprocal feedback. Changing the assigned supervisor clears the current reciprocal exchange. Invitation, response, commitment and follow-up remain optional and do not change officer agreement or plan endorsement.
+
+The GitHub Pages prototype mirrors the flow using simulated roles and device-local records. Preparation stays in page memory, outside localStorage and downloaded journeys. Use fictional examples in the prototype; its role switch is not an authorization boundary.

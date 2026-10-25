@@ -291,3 +291,13 @@ p { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
+
+/* Reciprocal leadership feedback */
+.reciprocal-panel { border-inline-start:3px solid #9275c9; }
+.feedback-invitation { background:#f5f0fc; padding:1rem; border-radius:.75rem; margin:1rem 0; overflow-wrap:anywhere; }
+.feedback-invitation blockquote { margin:.75rem 0 0; }
+.feedback-preparation { margin:1rem 0; }
+.feedback-preparation summary { cursor:pointer; font-weight:700; }
+.feedback-copy { white-space:pre-wrap; overflow-wrap:anywhere; }
+.reciprocal-panel .button-row { flex-wrap:wrap; }
+.reciprocal-panel button { white-space:normal; max-width:100%; }

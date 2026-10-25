@@ -4,6 +4,7 @@ export function supervisorGuide(data:any){const s=scenarios.find(s=>s.id===data.
  scope:levelQuestions[data.level],
  stages:[
  {title:'Prepare with curiosity',questions:['What have you directly observed, and what are you assuming?','When has this officer handled something similar well?','What might your own expectations, decisions or support be contributing?']},
+ {title:'Invite feedback on your own leadership',questions:['Growth goes both ways. Choose one of your own IDEAL attributes and invite a recent example of your impact.','Ask: what should I continue or adjust to support you better? Make it clear that responding is optional.','Listen, thank and clarify before deciding on a small change in your own support.']},
  {title:'Listen before interpreting',questions:['Ask: what would make this conversation useful for you?','Invite one incident: what happened, what did you do, and what followed?','Reflect back what you heard and ask what you may have missed.']},
  {title:'Explore strengths and causes',questions:['What strength helped here? When does it need more room or a different balance?','Is the barrier skill, confidence, habit, opportunity, workload or the way work is organised?','Offer an observation: I noticed X; the effect seemed to be Y. How did you experience it?']},
  {title:'Agree a small experiment',questions:['What is one behaviour worth testing in real work?','What will you personally do to support it or remove an obstacle?','Who can give useful feedback, and when will you revisit what happened?']},
